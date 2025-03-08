@@ -3,15 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WDD 131</title>
+    <meta name="description" content="WDD 131 – Dynamic Web Fundamentals | John Obiko | Web development basics, HTML, CSS, JavaScript.">
+    <meta name="author" content="John Obiko">
+    <title>WDD 131 – Dynamic Web Fundamentals - John Obiko</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/base.css">
+    
+    <!-- JavaScript (defer ensures script runs after HTML loads) -->
+    <script src="scripts/getdates.js" defer></script>
 </head>
 <body>
-    <h1>WDD 131- John Obiko</h1>
-    <p>Welcome to my WDD 131 project page. Here you will find various assignments and projects that I have completed during the course.</p>
-    <ul>
-        <li><a href="assignment1.html">Assignment 1: Introduction to HTML</a></li>
-        <li><a href="assignment2.html">Assignment 2: CSS Basics</a></li>
-        <li><a href="project1.html">Project 1: Personal Portfolio</a></li>
-    </ul>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to My WDD 131 Home Page</h1>
+        <nav>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank">LinkedIn</a></li>
+                <li><a href="https://byupw.instructure.com/" target="_blank">Canvas</a></li>
+                <li><a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/3?lang=eng&id=p7#p7" target="_blank">Favorite Scripture</a></li>
+                <li><a href="#" target="_blank">Final Project</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="card">
+            <h2>About Me</h2>
+            <img src="images/profile.jpg.jpg" alt="John Obiko Profile Picture" width="200" height="200">
+            <p>Hello! My name is John Obiko from Nairobi, Kenya. I'm passionate about web development and excited for this course!</p>
+        </section>
+
+        <section class="card">
+            <h2>My Interests</h2>
+            <img src="images/imageswebdev.jpg.jpg" alt="Web Development">
+            <p>I enjoy coding, learning new technologies, and building awesome web applications. I am also interested in design and UX.</p>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; <span id="currentyear"></span> John Obiko | Nairobi, Kenya</p>
+        <p id="lastModified"></p>
+    </footer>
+
 </body>
 </html>
