@@ -8,10 +8,13 @@ body {
 }
 
 header {
-    background-color: #f4f4f4;
+    background-color: #3c0965;
     padding: 1rem;
     text-align: center;
     position: relative;
+}
+header h1 {
+    color: #ffffff; /* Set the text color to white */
 }
 
 nav ul {
@@ -26,7 +29,13 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #333;
+    color: #ffffff;
+}
+main h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #000000; /* Matches the purple theme */
+    margin-bottom: 1rem; /* Adds space between heading and images */
 }
 
 main {
@@ -73,7 +82,7 @@ footer {
 .hamburger div {
     width: 25px;
     height: 3px;
-    background-color: #333;
+    background-color: #ffffff;
     margin: 5px 0;
 }
 
@@ -110,9 +119,9 @@ nav.active {
     }
 }
 footer {
-    background-color: #f4f4f4;
+    background-color: #3c0965;
     ; /* Deep purple background */
-    color: #000000; /* White text color */
+    color: #ffffff; /* White text color */
     text-align: center;
     padding: 1rem;
     font-size: 0.9rem;
