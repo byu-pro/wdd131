@@ -19,8 +19,9 @@ document.querySelectorAll("nav a").forEach(link => {
 const currentYearSpan = document.getElementById("currentYear");
 const lastModifiedSpan = document.getElementById("lastModified");
 
-// Set current year
+// Set current year dynamically
 currentYearSpan.textContent = new Date().getFullYear();
 
-// Set last modified date
+// Set last modified date dynamically
 lastModifiedSpan.textContent = document.lastModified;
+

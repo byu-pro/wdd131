@@ -109,3 +109,35 @@ nav.active {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+footer {
+    background-color: #f4f4f4;
+    ; /* Deep purple background */
+    color: #000000; /* White text color */
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+footer p {
+    margin: 0.5rem 0; /* Space between paragraphs */
+}
+
+footer span {
+    font-weight: bold; /* Bold for dynamic content */
+}
+
+footer p:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem; /* Space between decorative elements */
+}
+
+footer p:first-child span {
+    font-size: 1rem; /* Slightly larger font for year and name */
+}
+
+footer p:last-child {
+    font-size: 0.8rem; /* Smaller font for last modification date */
+}
