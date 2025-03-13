@@ -21,7 +21,12 @@ nav ul {
     list-style-type: none;
     padding: 0;
 }
-
+/* Figcaption styling */
+figcaption {
+    color: #3c0965; /* Deep purple text color for captions */
+    font-size: 1rem;
+    margin-top: 0.5rem; /* Space above the caption */
+}
 nav ul li {
     display: block;
     margin-bottom: 0.5rem;
