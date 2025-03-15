@@ -13,6 +13,7 @@ header {
     text-align: center;
     position: relative;
 }
+
 header h1 {
     color: #ffffff; /* Set the text color to white */
 }
@@ -21,12 +22,14 @@ nav ul {
     list-style-type: none;
     padding: 0;
 }
+
 /* Figcaption styling */
 figcaption {
     color: #3c0965; /* Deep purple text color for captions */
     font-size: 1rem;
     margin-top: 0.5rem; /* Space above the caption */
 }
+
 nav ul li {
     display: block;
     margin-bottom: 0.5rem;
@@ -36,6 +39,7 @@ nav ul li a {
     text-decoration: none;
     color: #ffffff;
 }
+
 main h1 {
     text-align: center;
     font-size: 1.5rem;
@@ -123,9 +127,15 @@ nav.active {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+@media screen and (min-width: 1024px) {
+    .temple-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 footer {
-    background-color: #3c0965;
-    ; /* Deep purple background */
+    background-color: #3c0965; /* Deep purple background */
     color: #ffffff; /* White text color */
     text-align: center;
     padding: 1rem;

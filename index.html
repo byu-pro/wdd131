@@ -24,15 +24,63 @@
     <header>
         <h1>Welcome to My WDD 131 Home Page</h1>
         <nav>
-            <ul>
-                <li><a href="https://www.linkedin.com/in/ondwariobiko" target="_blank">LinkedIn</a></li>
-                <li><a href="https://byupw.instructure.com/" target="_blank">Canvas</a></li>
-                <li><a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/3?lang=eng&id=p7#p7" target="_blank">Favorite Scripture</a></li>
-                <li><a href="#" target="_blank">Final Project</a></li>
+            <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+            <ul id="nav-links">
+                <li><a href="https://www.linkedin.com/in/ondwariobiko" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="https://byupw.instructure.com/" target="_blank" rel="noopener noreferrer">Canvas</a></li>
+                <li><a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/3?lang=eng&id=p7#p7" target="_blank" rel="noopener noreferrer">Favorite Scripture</a></li>
+                <li><a href="final-project.html">Final Project</a></li>
                 <li><a href="temples.html">Temple Album</a></li>
             </ul>
         </nav>
     </header>
+    <style>
+        header nav {
+            position: relative;
+        }
+        .menu-icon {
+            display: none;
+            font-size: 2em;
+            cursor: pointer;
+        }
+        header nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0;
+            list-style: none;
+        }
+        header nav ul li {
+            margin: 5px 10px;
+        }
+        header nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+        @media (max-width: 600px) {
+            .menu-icon {
+                display: block;
+            }
+            header nav ul {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            header nav ul li {
+                margin: 10px 0;
+            }
+            header nav ul.show {
+                display: flex;
+            }
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('show');
+        }
+    </script>
 
     <!-- Main Content -->
     <main>
@@ -51,9 +99,16 @@
 
     <!-- Footer Section -->
     <footer>
-        <p>&copy; <span id="currentyear"></span> John Obiko | Nairobi, Kenya</p>
-        <p id="lastModified"></p>
+        <p>&copy; <span id="currentYear"></span> John Obiko | Nairobi, Kenya</p>
+        <p id="lastModifiedDate"></p>
     </footer>
+    <script>
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Set last modified date
+        document.getElementById('lastModifiedDate').textContent = 'Last Modified: ' + document.lastModified;
+    </script>
 
 </body>
 </html>
