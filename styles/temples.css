@@ -165,3 +165,17 @@ footer p:first-child span {
 footer p:last-child {
     font-size: 0.8rem; /* Smaller font for last modification date */
 }
+.title-container {
+    text-align: center; /* Centers all text inside */
+    margin: 20px 0; /* Adds space above and below */
+}
+
+.title-container h1 {
+    font-size: 2.5em; /* Make it bigger for emphasis */
+    margin-bottom: 10px; /* Space between h1 and h2 */
+}
+
+.title-container h2 {
+    font-size: 2em;
+    color: #555; /* Slightly different color for distinction */
+}
