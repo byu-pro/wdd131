@@ -1,5 +1,5 @@
-// Dynamically insert the current year in the footer
-document.getElementById("currentyear").textContent = new Date().getFullYear();
-
-// Dynamically insert the last modified date
-document.getElementById("lastModified").textContent = "Last Modified: " + document.lastModified;
+document.addEventListener("DOMContentLoaded", function () {
+    // Fix the incorrect ID names
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+    document.getElementById("lastModifiedDate").textContent = "Last Modified: " + document.lastModified;
+});
