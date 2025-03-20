@@ -102,6 +102,12 @@ nav {
 nav.active {
     display: block;
 }
+nav ul li a:hover {
+    color: #ffcc00; /* Change text color on hover */
+    background-color: #333; /* Change background color */
+    text-decoration: underline; /* Optional: Adds underline */
+    transition: 0.3s ease-in-out; /* Smooth transition effect */
+}
 
 @media screen and (min-width: 768px) {
     .hamburger {
