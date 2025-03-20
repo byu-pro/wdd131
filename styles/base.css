@@ -13,10 +13,23 @@ header {
     padding: 1rem;
 }
 
+/* Navigation Menu */
+nav {
+    position: relative;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+/* Desktop Navigation */
 nav ul {
     list-style: none;
     padding: 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -33,6 +46,28 @@ nav ul li a {
 
 nav ul li a:hover {
     color: #ffcc00;
+}
+
+/* Mobile Navigation */
+@media (max-width: 600px) {
+    .menu-icon {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
 }
 
 /* Main Content */
@@ -56,7 +91,6 @@ main {
     border-radius: 50%; /* Makes it circular */
     object-fit: cover; /* Ensures image fills the area without distortion */
 }
-
 
 /* Footer */
 footer {
