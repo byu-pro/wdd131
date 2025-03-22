@@ -9,11 +9,14 @@
         <link rel="icon" type="image/png" href="images/kenyanfavicon.png">
         <link rel="stylesheet" href="styles/place.css">
         <script src="scripts/place.js" defer></script>
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+
     </head>
     
 <body>
     <header>
-        <h1>Kenya</h1>
+        <h1>Nairobi, Kenya</h1>
     </header>
     <div class="header-box"></div> <!-- ✅ Thin Green Box -->
     
@@ -21,7 +24,12 @@
     <div class="hero"></div>
     
     <!-- Mobile-Only Image -->
-    <img src="images/lion.webp" alt="Lion in the Wild" class="mobile-hero">
+    <img 
+        src="images/lion.webp" 
+        srcset="images/lion-small.webp 600w, images/lion-medium.webp 1200w, images/lion.webp 2000w" 
+        sizes="(max-width: 768px) 100vw, 50vw" 
+        alt="Lion in the Wild" 
+        class="mobile-hero">
     
     <!-- ✅ Add missing <main> tag -->
     <main>
@@ -40,7 +48,12 @@
         
         <section class="weather">
             <h2>Weather ⛅</h2>
-            <img src="images/weathericon.svg" alt="Weather Icon" class="mobile-icon">
+            <img 
+                src="images/weathericon.svg" 
+                srcset="images/weathericon-small.svg 50w, images/weathericon-medium.svg 100w, images/weathericon.svg 150w" 
+                sizes="(max-width: 768px) 50px, 100px" 
+                alt="Weather Icon" 
+                class="mobile-icon">
             <p><strong>Temperature:</strong> 22°C</p>
             <p><strong>Conditions:</strong> Sunny</p>
             <p><strong>Wind:</strong> 10 km/h</p>
