@@ -1,54 +1,108 @@
-/* General Styles */
+/* Global Variables */
+:root {
+    --black: #000000;
+    --red: #bb0a1e;
+    --green: #006400;
+    --white: #ffffff;
+    --font-primary: Arial, sans-serif;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: var(--font-primary);
     margin: 0;
     padding: 0;
-    background-color: #fff;
-    color: #000;
+    background-color: var(--white);
+    color: var(--black);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
-    background-color: #b00; /* Red */
-    color: white;
+    background-color: var(--red);
+    color: var(--white);
     text-align: center;
     padding: 20px;
-    font-size: 1.8em;
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+/* HERO SECTION (DESKTOP) */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Fixed height for desktop */
+    background-image: url('/images/safari.jpg'); /* Background image only for desktop */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-picture img {
+/* HERO IMAGE (HIDDEN ON DESKTOP) */
+.hero img {
+    display: none; /* Hidden on desktop */
     width: 100%;
     height: auto;
-    max-width: 1000px;
 }
 
+/* DATA & WEATHER BOXES (DESKTOP) */
 .data, .weather {
-    background-color: #006400; /* Dark Green */
-    color: white;
+    background-color: var(--green);
+    color: var(--white);
     padding: 15px;
-    margin: 20px;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 400px;
+    border-radius: 10px;
+    width: 250px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-.data h2, .weather h2 {
-    background-color: black;
-    padding: 10px;
-    text-align: center;
-    border-radius: 5px;
+.data {
+    left: 5%;
 }
 
+.weather {
+    right: 5%;
+}
+
+/* Weather Pseudo-element */
+.weather h2::after {
+    content: "⛅";
+    font-size: 1.5rem;
+}
+
+/* FOOTER */
 footer {
-    background-color: #b00; /* Red */
-    color: white;
+    background-color: var(--red);
+    color: var(--white);
     text-align: center;
-    padding: 15px;
-    margin-top: 20px;
+    padding: 10px;
+    margin-top: auto;
+}
+
+/* ✅ FIX MOBILE VIEW (ONLY AFFECTS MOBILE) */
+@media (max-width: 768px) {
+    /* REMOVE background image & use real image instead */
+    .hero {
+        height: auto; /* Auto height for real image */
+        background-image: none; /* Remove background */
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Show the image on mobile */
+    .hero img {
+        display: block; /* Show image in mobile */
+    }
+
+    /* STACK DATA & WEATHER BELOW */
+    .data, .weather {
+        position: static; /* No absolute positioning */
+        transform: none;
+        width: 90%;
+        text-align: center;
+        margin: 20px auto; /* Center elements */
+    }
+
+    .weather h2::after {
+        content: ""; /* Remove pseudo-element in mobile view */
+    }
 }
