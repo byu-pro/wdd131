@@ -36,7 +36,7 @@ header {
     position: relative;
     width: 100%;
     height: 500px;
-    background-image: url('/images/safari.webp'); /* ✅ WebP format only */
+    background-image: url('/images/safari.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
