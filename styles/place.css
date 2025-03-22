@@ -140,3 +140,36 @@ footer {
         display: block; /* Show mobile image */
     }
 }
+/* Hide mobile elements on desktop */
+.mobile-hero,
+.mobile-icon {
+    display: none;
+}
+
+/* Show only on mobile */
+@media (max-width: 768px) {
+    .mobile-hero,
+    .mobile-icon {
+        display: block;
+        width: 100%;  /* Ensures it fits the screen */
+        height: auto;
+    }
+}
+.weather {
+    text-align: center; /* Centers all text and elements */
+}
+
+/* ✅ Hide mobile icon on desktop */
+.mobile-icon {
+    display: none;
+}
+
+/* ✅ Show only on mobile */
+@media (max-width: 768px) {
+    .mobile-icon {
+        display: block;
+        margin: 10px auto; /* Center horizontally */
+        width: 50px; /* Adjust size if needed */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
