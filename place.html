@@ -19,6 +19,8 @@
     <!-- Mobile-Only Image -->
     <img src="images/lion.webp" alt="Lion in the Wild" class="mobile-hero">
     
+    <!-- ✅ Add missing <main> tag -->
+    <main>
 
         <section class="data">
             <h2>Data</h2>
@@ -38,8 +40,10 @@
             <p><strong>Temperature:</strong> 22°C</p>
             <p><strong>Conditions:</strong> Sunny</p>
             <p><strong>Wind:</strong> 10 km/h</p>
-            <p><strong>Wind Chill:</strong> 21.5°C</p>
+            <!-- ✅ Add span for wind chill -->
+            <p><strong>Wind Chill:</strong> <span id="windChill">N/A</span></p>
         </section>
+
     </main>
     
     <footer>
