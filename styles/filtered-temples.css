@@ -9,6 +9,14 @@ body {
 * {
     font-family: "Roboto", sans-serif;
 }
+body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400; /* Default weight */
+}
+
+h1, h2, h3 {
+    font-weight: 700; /* Make headings bolder */
+}
 
 header {
     background-color: #3c0965;
