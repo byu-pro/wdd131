@@ -1,0 +1,187 @@
+/* Base styles for mobile-first approach */
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #3c0965;
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+}
+
+header h1 {
+    color: #ffffff; /* Set the text color to white */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Figcaption styling */
+figcaption {
+    color: #3c0965; /* Deep purple text color for captions */
+    font-size: 1rem;
+    margin-top: 0.5rem; /* Space above the caption */
+}
+
+nav ul li {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+main h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #000000; /* Matches the purple theme */
+    margin-bottom: 1rem; /* Adds space between heading and images */
+}
+
+main {
+    padding: 1rem;
+}
+
+.temple-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+figure {
+    margin: 0;
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+figcaption {
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+footer {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+/* Hamburger menu styles */
+.hamburger {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 5px 0;
+}
+
+nav {
+    display: none;
+}
+
+nav.active {
+    display: block;
+}
+nav ul li a:hover {
+    color: #ffcc00; /* Change text color on hover */
+    background-color: #333; /* Change background color */
+    text-decoration: underline; /* Optional: Adds underline */
+    transition: 0.3s ease-in-out; /* Smooth transition effect */
+}
+
+@media screen and (min-width: 768px) {
+    .hamburger {
+        display: none;
+    }
+
+    nav {
+        display: block;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    nav ul li {
+        display: inline;
+        margin-right: 1rem;
+        margin-bottom: 0;
+    }
+
+    .temple-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .temple-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+footer {
+    background-color: #3c0965; /* Deep purple background */
+    color: #ffffff; /* White text color */
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+footer p {
+    margin: 0.5rem 0; /* Space between paragraphs */
+}
+
+footer span {
+    font-weight: bold; /* Bold for dynamic content */
+}
+
+footer p:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem; /* Space between decorative elements */
+}
+
+footer p:first-child span {
+    font-size: 1rem; /* Slightly larger font for year and name */
+}
+
+footer p:last-child {
+    font-size: 0.8rem; /* Smaller font for last modification date */
+}
+.title-container {
+    text-align: center; /* Centers all text inside */
+    margin: 20px 0; /* Adds space above and below */
+}
+
+.title-container h1 {
+    font-size: 2.5em; /* Make it bigger for emphasis */
+    margin-bottom: 10px; /* Space between h1 and h2 */
+}
+
+.title-container h2 {
+    font-size: 2em;
+    color: #555; /* Slightly different color for distinction */
+}
