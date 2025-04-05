@@ -1,4 +1,4 @@
-// Product list to populate dropdown
+// Constants
 const products = [
   { id: 'prod1', name: 'Wireless Mouse' },
   { id: 'prod2', name: 'Mechanical Keyboard' },
@@ -6,17 +6,24 @@ const products = [
   { id: 'prod4', name: 'USB-C Hub' }
 ];
 
-// Form validation messages
 const validationMessages = {
   product: 'Please select a product',
   rating: 'Please rate the product',
   installDate: {
     required: 'Please select installation date',
-    future: 'Date cannot be in the future'
+    future: 'Date cannot be in the future',
+    invalid: 'Please enter a valid date'
   },
   features: 'Please select at least one feature'
 };
 
+const errorClasses = {
+  container: 'error-container',
+  message: 'error-message',
+  field: 'error-field'
+};
+
+// Main initialization
 document.addEventListener('DOMContentLoaded', () => {
   // DOM Elements
   const form = document.querySelector('form');
@@ -25,15 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const featuresCheckboxes = document.querySelectorAll('input[name="features"]');
   const ratingInputs = document.querySelectorAll('input[name="rating"]');
 
-  // 1. Populate product dropdown
+  // Initialize
   populateProducts();
-  
-  // 2. Set up event listeners
   setupEventListeners();
-  
-  // 3. Focus first element
+  initializeDatePicker();
   productSelect.focus();
 
+  // Functions
   function populateProducts() {
     const defaultOption = document.createElement('option');
     defaultOption.value = '';
@@ -65,6 +70,11 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', handleFormSubmit);
   }
 
+  function initializeDatePicker() {
+    const today = new Date().toISOString().split('T')[0];
+    installDateInput.setAttribute('max', today);
+  }
+
   // Validation functions
   function validateProduct() {
     const errorElement = document.getElementById('product-error') || createErrorElement(productSelect);
@@ -80,41 +90,51 @@ document.addEventListener('DOMContentLoaded', () => {
     const errorElement = document.getElementById('installDate-error') || createErrorElement(installDateInput);
     const selectedDate = new Date(installDateInput.value);
     const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    today.setHours(23, 59, 59, 999);
 
     if (!installDateInput.value) {
       showError(errorElement, validationMessages.installDate.required);
       return false;
-    } else if (selectedDate > today) {
+    }
+    
+    if (isNaN(selectedDate.getTime())) {
+      showError(errorElement, validationMessages.installDate.invalid);
+      return false;
+    }
+
+    if (selectedDate > today) {
       showError(errorElement, validationMessages.installDate.future);
       return false;
     }
+    
     hideError(errorElement);
     return true;
   }
 
   function validateFeatures() {
-    const checkedFeatures = Array.from(featuresCheckboxes).some(cb => cb.checked);
-    const firstCheckbox = featuresCheckboxes[0];
-    const errorElement = document.getElementById('features-error') || createErrorElement(firstCheckbox.parentElement.parentElement);
+    const checkedFeatures = Array.from(featuresCheckboxes).filter(cb => cb.checked);
+    const errorElement = document.getElementById('features-error') || 
+                        createErrorElement(featuresCheckboxes[0].closest('.checkbox-group'));
 
-    if (!checkedFeatures) {
+    if (checkedFeatures.length < 1) {
       showError(errorElement, validationMessages.features);
       return false;
     }
+    
     hideError(errorElement);
     return true;
   }
 
   function validateRating() {
-    const checkedRating = Array.from(ratingInputs).some(radio => radio.checked);
-    const firstRating = ratingInputs[0];
-    const errorElement = document.getElementById('rating-error') || createErrorElement(firstRating.parentElement);
+    const rating = document.querySelector('input[name="rating"]:checked')?.value;
+    const errorElement = document.getElementById('rating-error') || 
+                        createErrorElement(ratingInputs[0].parentElement);
 
-    if (!checkedRating) {
+    if (!rating) {
       showError(errorElement, validationMessages.rating);
       return false;
     }
+    
     hideError(errorElement);
     return true;
   }
@@ -122,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Helper functions
   function createErrorElement(inputElement) {
     const errorElement = document.createElement('div');
-    errorElement.className = 'error-message';
+    errorElement.className = errorClasses.message;
     errorElement.id = `${inputElement.id}-error`;
     inputElement.parentNode.insertBefore(errorElement, inputElement.nextSibling);
     return errorElement;
@@ -130,17 +150,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function showError(element, message) {
     element.textContent = message;
+    element.classList.add(errorClasses.message);
     element.style.display = 'block';
     element.setAttribute('role', 'alert');
-    element.previousElementSibling.classList.add('error');
+    
+    const input = element.previousElementSibling.querySelector('input, select, textarea') || 
+                 element.previousElementSibling;
+    input.classList.add(errorClasses.field);
+    input.setAttribute('aria-invalid', 'true');
   }
 
   function hideError(element) {
     if (element) {
       element.style.display = 'none';
       element.removeAttribute('role');
-      element.previousElementSibling?.classList.remove('error');
+      
+      const input = element.previousElementSibling.querySelector('input, select, textarea') || 
+                   element.previousElementSibling;
+      input.classList.remove(errorClasses.field);
+      input.removeAttribute('aria-invalid');
     }
+  }
+
+  function sanitizeInput(value) {
+    if (!value) return value;
+    const div = document.createElement('div');
+    div.textContent = value;
+    return div.innerHTML;
   }
 
   // Form submission handler
@@ -154,39 +190,77 @@ document.addEventListener('DOMContentLoaded', () => {
     const isRatingValid = validateRating();
 
     if (isProductValid && isDateValid && isFeaturesValid && isRatingValid) {
-      // Prepare form data
-      const formData = {
-        productId: productSelect.value,
-        productName: productSelect.options[productSelect.selectedIndex].text,
-        rating: document.querySelector('input[name="rating"]:checked')?.value,
-        installDate: installDateInput.value,
-        features: Array.from(featuresCheckboxes)
-          .filter(cb => cb.checked)
-          .map(cb => cb.value),
-        review: document.getElementById('review').value,
-        username: document.getElementById('username').value,
+      const formData = new FormData(form);
+      const data = {
+        product: {
+          id: productSelect.value,
+          name: productSelect.options[productSelect.selectedIndex].text
+        },
+        rating: formData.get('rating'),
+        installDate: formData.get('installDate'),
+        features: formData.getAll('features'),
+        review: sanitizeInput(formData.get('review')),
+        username: sanitizeInput(formData.get('username')),
         timestamp: new Date().toISOString()
       };
 
-      // In a real app, you would send this to a server
-      console.log('Form data valid:', formData);
-      
-      // Show success message (in a real app, you might redirect)
-      alert('Thank you for your review!');
+      // For GET method forms
+      if (form.method.toLowerCase() === 'get') {
+        const params = new URLSearchParams();
+        Object.entries(data).forEach(([key, value]) => {
+          if (Array.isArray(value)) {
+            value.forEach(v => params.append(key, v));
+          } else if (value) {
+            params.append(key, value);
+          }
+        });
+        window.location.href = `${form.action}?${params.toString()}`;
+        return;
+      }
+
+      console.log('Form data:', data);
+      showSuccessMessage();
       form.reset();
-      
-      // Reset errors
       document.querySelectorAll('.error-message').forEach(el => hideError(el));
     } else {
-      // Scroll to first error
-      const firstError = document.querySelector('.error-message[style="display: block;"]');
+      const firstError = document.querySelector(`.${errorClasses.message}[style="display: block;"]`);
       if (firstError) {
         firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     }
   }
 
-  // Initialize date picker with max date as today
-  const today = new Date().toISOString().split('T')[0];
-  installDateInput.setAttribute('max', today);
+  function showSuccessMessage() {
+    const existingSuccess = document.querySelector('.success-message');
+    if (existingSuccess) existingSuccess.remove();
+    
+    const successDiv = document.createElement('div');
+    successDiv.className = 'success-message';
+    successDiv.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="#4CAF50">
+        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+      </svg>
+      <h3>Thank you for your review!</h3>
+      <p>Your feedback has been submitted successfully.</p>
+    `;
+    form.parentNode.insertBefore(successDiv, form.nextSibling);
+    
+    setTimeout(() => {
+      successDiv.style.opacity = '0';
+      setTimeout(() => successDiv.remove(), 300);
+    }, 5000);
+  }
+
+  // Cleanup function
+  return function cleanup() {
+    productSelect.removeEventListener('change', validateProduct);
+    installDateInput.removeEventListener('change', validateInstallDate);
+    featuresCheckboxes.forEach(checkbox => {
+      checkbox.removeEventListener('change', validateFeatures);
+    });
+    ratingInputs.forEach(radio => {
+      radio.removeEventListener('change', validateRating);
+    });
+    form.removeEventListener('submit', handleFormSubmit);
+  };
 });
