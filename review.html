@@ -1,100 +1,266 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Thank you for submitting your product review">
-  <title>Review Submitted Successfully</title>
-  
-  <!-- Preload resources -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/form.css">
-  
-  <!-- Prefetch the form page if user might return -->
-  <link rel="prefetch" href="form.html" as="document">
-</head>
-<body>
-  <div class="container success-container">
-    <main>
-      <div class="success-message">
-        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-          <polyline points="22 4 12 14.01 9 11.01"></polyline>
-        </svg>
-        <h1>Thank You for Your Review!</h1>
-        <p>Your feedback helps us improve our products and services.</p>
-        
-        <div class="review-stats">
-          <p>You've submitted <span id="review-count" aria-live="polite">0</span> review(s)</p>
-          <p>Last reviewed product: <span id="last-product">None yet</span></p>
-        </div>
-        
-        <div class="action-buttons">
-          <a href="form.html" class="btn">Submit Another Review</a>
-          <a href="#" class="btn secondary" id="view-reviews">View Your Reviews</a>
-        </div>
-      </div>
-    </main>
+// Constants
+const products = [
+  { id: 'prod1', name: 'Wireless Mouse' },
+  { id: 'prod2', name: 'Mechanical Keyboard' },
+  { id: 'prod3', name: 'HD Monitor' },
+  { id: 'prod4', name: 'USB-C Hub' }
+];
 
-    <footer>
-      <div class="footer-content">
-        <p>&copy;<span id="current-year">2025</span> 🌸 John Obiko</p>
-        <p>Nairobi, Kenya</p>
-        <p>Last Modified: <time id="last-modified" datetime="2025-04-05T14:30:00">04/05/2025 14:30:00</time></p>
-      </div>
-    </footer>
-  </div>
+const validationMessages = {
+  product: 'Please select a product',
+  rating: 'Please rate the product',
+  installDate: {
+    required: 'Please select installation date',
+    future: 'Date cannot be in the future',
+    invalid: 'Please enter a valid date'
+  },
+  features: 'Please select at least one feature'
+};
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Update review counter
-      const updateReviewCounter = () => {
-        let count = localStorage.getItem('reviewCount') || 0;
-        count = parseInt(count) + 1;
-        localStorage.setItem('reviewCount', count);
-        document.getElementById('review-count').textContent = count;
-        
-        // Get last reviewed product from URL params
-        const params = new URLSearchParams(window.location.search);
-        const productId = params.get('product');
-        const productName = getProductName(productId);
-        
-        if (productName) {
-          document.getElementById('last-product').textContent = productName;
-          localStorage.setItem('lastReviewedProduct', productName);
-        } else {
-          const lastProduct = localStorage.getItem('lastReviewedProduct');
-          if (lastProduct) {
-            document.getElementById('last-product').textContent = lastProduct;
-          }
-        }
-      };
+const errorClasses = {
+  container: 'error-container',
+  message: 'error-message',
+  field: 'error-field'
+};
 
-      // Helper function to get product name from ID
-      const getProductName = (productId) => {
-        const products = {
-          'prod1': 'Wireless Mouse',
-          'prod2': 'Mechanical Keyboard',
-          'prod3': 'HD Monitor',
-          'prod4': 'USB-C Hub'
-        };
-        return products[productId] || null;
-      };
+// Main initialization
+document.addEventListener('DOMContentLoaded', () => {
+  // DOM Elements
+  const form = document.querySelector('form');
+  const productSelect = document.getElementById('product');
+  const installDateInput = document.getElementById('installDate');
+  const featuresCheckboxes = document.querySelectorAll('input[name="features"]');
+  const ratingInputs = document.querySelectorAll('input[name="rating"]');
 
-      // Update dynamic dates
-      document.getElementById('current-year').textContent = new Date().getFullYear();
-      
-      // View reviews button functionality (simulated)
-      document.getElementById('view-reviews').addEventListener('click', (e) => {
-        e.preventDefault();
-        alert('This feature would show your review history in a real application.');
-      });
+  // Initialize
+  populateProducts();
+  setupEventListeners();
+  initializeDatePicker();
+  productSelect.focus();
 
-      // Initialize
-      updateReviewCounter();
+  // Functions
+  function populateProducts() {
+    const defaultOption = document.createElement('option');
+    defaultOption.value = '';
+    defaultOption.disabled = true;
+    defaultOption.selected = true;
+    defaultOption.textContent = 'Choose a Product...';
+    productSelect.appendChild(defaultOption);
+
+    products.forEach(product => {
+      const option = document.createElement('option');
+      option.value = product.id;
+      option.textContent = product.name;
+      productSelect.appendChild(option);
     });
-  </script>
-</body>
-</html>
+  }
+
+  function setupEventListeners() {
+    // Real-time validation
+    productSelect.addEventListener('change', validateProduct);
+    installDateInput.addEventListener('change', validateInstallDate);
+    featuresCheckboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', validateFeatures);
+    });
+    ratingInputs.forEach(radio => {
+      radio.addEventListener('change', validateRating);
+    });
+
+    // Form submission
+    form.addEventListener('submit', handleFormSubmit);
+  }
+
+  function initializeDatePicker() {
+    const today = new Date().toISOString().split('T')[0];
+    installDateInput.setAttribute('max', today);
+  }
+
+  // Validation functions
+  function validateProduct() {
+    const errorElement = document.getElementById('product-error') || createErrorElement(productSelect);
+    if (productSelect.value === '') {
+      showError(errorElement, validationMessages.product);
+      return false;
+    }
+    hideError(errorElement);
+    return true;
+  }
+
+  function validateInstallDate() {
+    const errorElement = document.getElementById('installDate-error') || createErrorElement(installDateInput);
+    const selectedDate = new Date(installDateInput.value);
+    const today = new Date();
+    today.setHours(23, 59, 59, 999);
+
+    if (!installDateInput.value) {
+      showError(errorElement, validationMessages.installDate.required);
+      return false;
+    }
+    
+    if (isNaN(selectedDate.getTime())) {
+      showError(errorElement, validationMessages.installDate.invalid);
+      return false;
+    }
+
+    if (selectedDate > today) {
+      showError(errorElement, validationMessages.installDate.future);
+      return false;
+    }
+    
+    hideError(errorElement);
+    return true;
+  }
+
+  function validateFeatures() {
+    const checkedFeatures = Array.from(featuresCheckboxes).filter(cb => cb.checked);
+    const errorElement = document.getElementById('features-error') || 
+                        createErrorElement(featuresCheckboxes[0].closest('.checkbox-group'));
+
+    if (checkedFeatures.length < 1) {
+      showError(errorElement, validationMessages.features);
+      return false;
+    }
+    
+    hideError(errorElement);
+    return true;
+  }
+
+  function validateRating() {
+    const rating = document.querySelector('input[name="rating"]:checked')?.value;
+    const errorElement = document.getElementById('rating-error') || 
+                        createErrorElement(ratingInputs[0].parentElement);
+
+    if (!rating) {
+      showError(errorElement, validationMessages.rating);
+      return false;
+    }
+    
+    hideError(errorElement);
+    return true;
+  }
+
+  // Helper functions
+  function createErrorElement(inputElement) {
+    const errorElement = document.createElement('div');
+    errorElement.className = errorClasses.message;
+    errorElement.id = `${inputElement.id}-error`;
+    inputElement.parentNode.insertBefore(errorElement, inputElement.nextSibling);
+    return errorElement;
+  }
+
+  function showError(element, message) {
+    element.textContent = message;
+    element.classList.add(errorClasses.message);
+    element.style.display = 'block';
+    element.setAttribute('role', 'alert');
+    
+    const input = element.previousElementSibling.querySelector('input, select, textarea') || 
+                 element.previousElementSibling;
+    input.classList.add(errorClasses.field);
+    input.setAttribute('aria-invalid', 'true');
+  }
+
+  function hideError(element) {
+    if (element) {
+      element.style.display = 'none';
+      element.removeAttribute('role');
+      
+      const input = element.previousElementSibling.querySelector('input, select, textarea') || 
+                   element.previousElementSibling;
+      input.classList.remove(errorClasses.field);
+      input.removeAttribute('aria-invalid');
+    }
+  }
+
+  function sanitizeInput(value) {
+    if (!value) return value;
+    const div = document.createElement('div');
+    div.textContent = value;
+    return div.innerHTML;
+  }
+
+  // Form submission handler
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    
+    // Validate all fields
+    const isProductValid = validateProduct();
+    const isDateValid = validateInstallDate();
+    const isFeaturesValid = validateFeatures();
+    const isRatingValid = validateRating();
+
+    if (isProductValid && isDateValid && isFeaturesValid && isRatingValid) {
+      const formData = new FormData(form);
+      const data = {
+        product: {
+          id: productSelect.value,
+          name: productSelect.options[productSelect.selectedIndex].text
+        },
+        rating: formData.get('rating'),
+        installDate: formData.get('installDate'),
+        features: formData.getAll('features'),
+        review: sanitizeInput(formData.get('review')),
+        username: sanitizeInput(formData.get('username')),
+        timestamp: new Date().toISOString()
+      };
+
+      // For GET method forms
+      if (form.method.toLowerCase() === 'get') {
+        const params = new URLSearchParams();
+        Object.entries(data).forEach(([key, value]) => {
+          if (Array.isArray(value)) {
+            value.forEach(v => params.append(key, v));
+          } else if (value) {
+            params.append(key, value);
+          }
+        });
+        window.location.href = `${form.action}?${params.toString()}`;
+        return;
+      }
+
+      console.log('Form data:', data);
+      showSuccessMessage();
+      form.reset();
+      document.querySelectorAll('.error-message').forEach(el => hideError(el));
+    } else {
+      const firstError = document.querySelector(`.${errorClasses.message}[style="display: block;"]`);
+      if (firstError) {
+        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  }
+
+  function showSuccessMessage() {
+    const existingSuccess = document.querySelector('.success-message');
+    if (existingSuccess) existingSuccess.remove();
+    
+    const successDiv = document.createElement('div');
+    successDiv.className = 'success-message';
+    successDiv.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="#4CAF50">
+        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+      </svg>
+      <h3>Thank you for your review!</h3>
+      <p>Your feedback has been submitted successfully.</p>
+    `;
+    form.parentNode.insertBefore(successDiv, form.nextSibling);
+    
+    setTimeout(() => {
+      successDiv.style.opacity = '0';
+      setTimeout(() => successDiv.remove(), 300);
+    }, 5000);
+  }
+
+  // Cleanup function
+  return function cleanup() {
+    productSelect.removeEventListener('change', validateProduct);
+    installDateInput.removeEventListener('change', validateInstallDate);
+    featuresCheckboxes.forEach(checkbox => {
+      checkbox.removeEventListener('change', validateFeatures);
+    });
+    ratingInputs.forEach(radio => {
+      radio.removeEventListener('change', validateRating);
+    });
+    form.removeEventListener('submit', handleFormSubmit);
+  };
+});
