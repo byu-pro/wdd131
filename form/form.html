@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Review Form</title>
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Product Review</h1>
+    <form method="get" action="review.html">
+      <label for="product">Product Name</label>
+      <select id="product" name="product" required>
+        <option value="" disabled selected>Choose a Product ...</option>
+      </select>
+
+      <label>Overall Rating</label>
+      <div class="stars">
+        <input type="radio" id="star1" name="rating" value="1" required />
+        <label for="star1">☆</label>
+        <input type="radio" id="star2" name="rating" value="2" />
+        <label for="star2">☆☆</label>
+        <input type="radio" id="star3" name="rating" value="3" />
+        <label for="star3">☆☆☆</label>
+        <input type="radio" id="star4" name="rating" value="4" />
+        <label for="star4">☆☆☆☆</label>
+        <input type="radio" id="star5" name="rating" value="5" />
+        <label for="star5">☆☆☆☆☆</label>
+      </div>
+
+      <label for="installDate">Date of Installation</label>
+      <input type="date" id="installDate" name="installDate" required />
+
+      <label>Which features did you find useful in the product? <span class="optional">(Check all that apply)</span></label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" id="durability" name="features" value="Durability" /> Durability</label>
+        <label><input type="checkbox" id="ease" name="features" value="Ease of Use" /> Ease of Use</label>
+        <label><input type="checkbox" id="performance" name="features" value="Performance" /> Performance</label>
+        <label><input type="checkbox" id="design" name="features" value="Design" /> Design</label>
+      </div>
+
+      <label for="review">Written Review <span class="optional">(Optional)</span></label>
+      <textarea id="review" name="review"></textarea>
+
+      <label for="username">Your Name <span class="optional">(Optional)</span></label>
+      <input type="text" id="username" name="username" />
+
+      <input type="submit" value="Post Review" class="submit-btn" />
+    </form>
+
+    <footer>
+      &copy;2025 🌸 John Obiko<br />
+      Nairobi, Kenya<br />
+      Last Modification: 04/05/2025 14:30:00
+    </footer>
+  </div>
+
+  <script src="scripts/script.js"></script>
+</body>
+</html>
