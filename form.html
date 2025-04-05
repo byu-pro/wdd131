@@ -7,10 +7,11 @@
   <meta name="author" content="John Obiko">
   <title>Product Review Form</title>
 
-   <!-- ✅ Google Fonts -->
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- ✅ Preload resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" as="style">
+  <link rel="preload" href="styles/form.css" as="style">
 
   <!-- ✅ External CSS -->
   <link rel="stylesheet" href="styles/form.css">
@@ -20,53 +21,107 @@
 </head>
 
 <body>
-  <div class="container">
-    <h1>Product Review</h1>
-    <form method="get" action="review.html">
-      <label for="product">Product Name</label>
-      <select id="product" name="product" required>
-        <option value="" disabled selected>Choose a Product ...</option>
-      </select>
-
-      <label>Overall Rating</label>
-      <div class="stars">
-        <input type="radio" id="star1" name="rating" value="1" required>
-        <label for="star1">☆</label>
-        <input type="radio" id="star2" name="rating" value="2">
-        <label for="star2">☆☆</label>
-        <input type="radio" id="star3" name="rating" value="3">
-        <label for="star3">☆☆☆</label>
-        <input type="radio" id="star4" name="rating" value="4">
-        <label for="star4">☆☆☆☆</label>
-        <input type="radio" id="star5" name="rating" value="5">
-        <label for="star5">☆☆☆☆☆</label>
+  <a href="#main-content" class="skip-link">Skip to form</a>
+  
+  <div class="container" id="main-content">
+    <h1 id="form-title">Product Review</h1>
+    <form method="get" action="review.html" role="form" aria-labelledby="form-title" novalidate>
+      <div class="form-group">
+        <label for="product">Product Name <span class="required">*</span></label>
+        <select id="product" name="product" required aria-required="true" aria-describedby="product-help">
+          <option value="" disabled selected>Choose a Product...</option>
+          <option value="prod1">Wireless Mouse</option>
+          <option value="prod2">Mechanical Keyboard</option>
+          <option value="prod3">HD Monitor</option>
+          <option value="prod4">USB-C Hub</option>
+        </select>
+        <span id="product-help" class="sr-only">Select a product from the dropdown</span>
       </div>
 
-      <label for="installDate">Date of Installation</label>
-      <input type="date" id="installDate" name="installDate" required>
+      <fieldset class="form-group">
+        <legend>Overall Rating <span class="required">*</span></legend>
+        <div class="stars" role="radiogroup" aria-labelledby="rating-label">
+          <input type="radio" id="star1" name="rating" value="1" required aria-required="true">
+          <label for="star1" aria-label="1 star">☆</label>
+          
+          <input type="radio" id="star2" name="rating" value="2">
+          <label for="star2" aria-label="2 stars">☆☆</label>
+          
+          <input type="radio" id="star3" name="rating" value="3">
+          <label for="star3" aria-label="3 stars">☆☆☆</label>
+          
+          <input type="radio" id="star4" name="rating" value="4">
+          <label for="star4" aria-label="4 stars">☆☆☆☆</label>
+          
+          <input type="radio" id="star5" name="rating" value="5">
+          <label for="star5" aria-label="5 stars">☆☆☆☆☆</label>
+        </div>
+      </fieldset>
 
-      <label>Which features did you find useful in the product? <span class="optional">(Check all that apply)</span></label>
-      <div class="checkbox-group">
-        <label><input type="checkbox" id="durability" name="features" value="Durability"> Durability</label>
-        <label><input type="checkbox" id="ease" name="features" value="Ease of Use"> Ease of Use</label>
-        <label><input type="checkbox" id="performance" name="features" value="Performance"> Performance</label>
-        <label><input type="checkbox" id="design" name="features" value="Design"> Design</label>
+      <div class="form-group">
+        <label for="installDate">Date of Installation <span class="required">*</span></label>
+        <input type="date" id="installDate" name="installDate" required aria-required="true" aria-describedby="date-help" inputmode="none" max="">
+        <span id="date-help" class="sr-only">Select the installation date</span>
       </div>
 
-      <label for="review">Written Review <span class="optional">(Optional)</span></label>
-      <textarea id="review" name="review"></textarea>
+      <fieldset class="form-group">
+        <legend>Which features did you find useful in the product? <span class="optional">(Check all that apply)</span></legend>
+        <div class="checkbox-group">
+          <label>
+            <input type="checkbox" id="durability" name="features" value="Durability">
+            <span>Durability</span>
+          </label>
+          <label>
+            <input type="checkbox" id="ease" name="features" value="Ease of Use">
+            <span>Ease of Use</span>
+          </label>
+          <label>
+            <input type="checkbox" id="performance" name="features" value="Performance">
+            <span>Performance</span>
+          </label>
+          <label>
+            <input type="checkbox" id="design" name="features" value="Design">
+            <span>Design</span>
+          </label>
+        </div>
+      </fieldset>
 
-      <label for="username">Your Name <span class="optional">(Optional)</span></label>
-      <input type="text" id="username" name="username">
+      <div class="form-group">
+        <label for="review">Written Review <span class="optional">(Optional)</span></label>
+        <textarea id="review" name="review" aria-describedby="review-help" rows="5"></textarea>
+        <span id="review-help" class="sr-only">Enter your detailed review</span>
+      </div>
 
-      <input type="submit" value="Post Review" class="submit-btn">
+      <div class="form-group">
+        <label for="username">Your Name <span class="optional">(Optional)</span></label>
+        <input type="text" id="username" name="username" aria-describedby="name-help" inputmode="text">
+        <span id="name-help" class="sr-only">Enter your name if you want to be credited</span>
+      </div>
+
+      <div class="form-group">
+        <input type="submit" value="Post Review" class="submit-btn">
+      </div>
     </form>
 
     <footer>
-      &copy;2025 🌸 John Obiko<br>
+      &copy;<span id="current-year">2025</span> 🌸 John Obiko<br>
       Nairobi, Kenya<br>
-      Last Modification: 2025-04-05 14:30:00
+      Last Modification: <time datetime="2025-04-05T14:30:00">2025-04-05 14:30:00</time>
     </footer>
   </div>
+
+  <script>
+    // Set max date to today for installation date
+    document.addEventListener('DOMContentLoaded', function() {
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('installDate').setAttribute('max', today);
+      
+      // Update current year in footer
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+      
+      // Focus first form element
+      document.getElementById('product').focus();
+    });
+  </script>
 </body>
 </html>

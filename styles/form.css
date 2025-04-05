@@ -1,95 +1,289 @@
+/* ===== CSS Variables ===== */
+:root {
+  --primary: #2d0032;
+  --primary-dark: #1a001d;
+  --primary-light: #3e0050;
+  --text: #333;
+  --text-light: #fff;
+  --text-muted: #666;
+  --border: #ccc;
+  --error: #d32f2f;
+  --focus: rgba(45, 0, 50, 0.3);
+  --bg: #f7f7f7;
+  --container-bg: #e1dbe5;
+  --star-empty: #ddd;
+  --star-filled: gold;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #e0e0e0;
+    --text-muted: #aaa;
+    --bg: #121212;
+    --container-bg: #1e1e1e;
+    --border: #444;
+  }
+}
+
+/* ===== Base Styles ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f7f7f7;
-    margin: 0;
-    padding: 0;
-  }
-  
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 1rem;
+}
+
+/* ===== Accessibility ===== */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--primary);
+  color: var(--text-light);
+  padding: 0.8rem;
+  z-index: 100;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ===== Container & Layout ===== */
+.container {
+  max-width: 600px;
+  margin: 2rem auto;
+  background-color: var(--container-bg);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+  text-align: center;
+  background-color: var(--primary);
+  color: var(--text-light);
+  padding: 1.2rem;
+  margin: -2rem -2rem 2rem -2rem;
+  border-radius: 10px 10px 0 0;
+  font-weight: 700;
+}
+
+/* ===== Form Elements ===== */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label, legend {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.required {
+  color: var(--error);
+  font-weight: bold;
+}
+
+.optional {
+  font-weight: normal;
+  font-size: 0.9em;
+  color: var(--text-muted);
+}
+
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.3rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--focus);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* ===== Star Rating ===== */
+.stars {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.stars input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.stars label {
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--star-empty);
+  transition: color 0.2s;
+  user-select: none;
+}
+
+.stars input:checked ~ label,
+.stars input:focus ~ label,
+.stars label:hover {
+  color: var(--star-filled);
+}
+
+.stars input:focus ~ label {
+  outline: 2px solid var(--primary);
+  border-radius: 2px;
+}
+
+/* ===== Checkbox Group ===== */
+.checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: normal;
+  cursor: pointer;
+  padding: 0.3rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.checkbox-group label:hover {
+  background-color: rgba(45, 0, 50, 0.1);
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 1.2em;
+  height: 1.2em;
+  accent-color: var(--primary);
+}
+
+/* ===== Submit Button ===== */
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--primary);
+  color: var(--text-light);
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.submit-btn:hover,
+.submit-btn:focus {
+  background-color: var(--primary-light);
+  outline: none;
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+}
+
+/* ===== Footer ===== */
+footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 1.5rem;
+  background-color: var(--primary);
+  color: var(--text-light);
+  border-radius: 0 0 10px 10px;
+  margin: 2rem -2rem -2rem -2rem;
+}
+
+/* ===== Error States ===== */
+input:invalid,
+select:invalid {
+  border-color: var(--error);
+}
+
+.error-message {
+  color: var(--error);
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  display: none;
+}
+
+input:invalid + .error-message,
+select:invalid + .error-message {
+  display: block;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 650px) {
   .container {
-    max-width: 600px;
-    margin: 2rem auto;
-    background-color: #e1dbe5;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    padding: 1.5rem;
   }
-  
-  h1 {
-    text-align: center;
-    background-color: #2d0032;
-    color: #fff;
+
+  h1, footer {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+  }
+
+  .checkbox-group {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
     padding: 1rem;
-    margin-top: 0;
-    border-radius: 10px 10px 0 0;
   }
-  
-  label {
-    display: block;
-    margin-top: 1rem;
-    font-weight: bold;
-  }
-  
+
   input[type="text"],
+  input[type="date"],
   select,
-  textarea,
-  input[type="date"] {
-    width: 100%;
-    padding: 0.5rem;
-    margin-top: 0.5rem;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-  
-  .stars input {
-    margin-right: 5px;
-  }
-  
-  .checkbox-group label {
-    display: block;
-    margin-top: 0.5rem;
-    font-weight: normal;
-  }
-  
   textarea {
-    height: 100px;
+    padding: 0.7rem;
   }
-  
-  .optional {
-    font-weight: normal;
-    font-size: 0.9rem;
-    color: #555;
+
+  .stars label {
+    font-size: 1.7rem;
   }
-  
-  .submit-btn {
-    margin-top: 1.5rem;
-    width: 100%;
-    padding: 0.75rem;
-    background-color: #2d0032;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  .submit-btn:hover {
-    background-color: #3e0050;
-  }
-  
-  footer {
-    margin-top: 2rem;
-    text-align: center;
-    font-size: 0.8rem;
-    background-color: #2d0032;
-    color: #fff;
-    padding: 1rem;
-    border-radius: 0 0 10px 10px;
-  }
-  
-  @media (max-width: 600px) {
-    .container {
-      margin: 1rem;
-      padding: 1.5rem;
-    }
-  }
-  
+}
