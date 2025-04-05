@@ -10,7 +10,8 @@
   <!-- ✅ Preload resources -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"></noscript>
   <link rel="preload" href="styles/form.css" as="style">
 
   <!-- ✅ External CSS -->
@@ -25,7 +26,7 @@
   
   <div class="container" id="main-content">
     <h1 id="form-title">Product Review</h1>
-    <form method="get" action="review.html" role="form" aria-labelledby="form-title" novalidate>
+    <form method="get" action="review.html" aria-labelledby="form-title" novalidate>
       <div class="form-group">
         <label for="product">Product Name <span class="required">*</span></label>
         <select id="product" name="product" required aria-required="true" aria-describedby="product-help">
@@ -39,7 +40,7 @@
       </div>
 
       <fieldset class="form-group">
-        <legend>Overall Rating <span class="required">*</span></legend>
+        <legend id="rating-label">Overall Rating <span class="required">*</span></legend>
         <div class="stars" role="radiogroup" aria-labelledby="rating-label">
           <input type="radio" id="star1" name="rating" value="1" required aria-required="true">
           <label for="star1" aria-label="1 star">☆</label>
@@ -60,7 +61,7 @@
 
       <div class="form-group">
         <label for="installDate">Date of Installation <span class="required">*</span></label>
-        <input type="date" id="installDate" name="installDate" required aria-required="true" aria-describedby="date-help" inputmode="none" max="">
+        <input type="date" id="installDate" name="installDate" required aria-required="true" aria-describedby="date-help">
         <span id="date-help" class="sr-only">Select the installation date</span>
       </div>
 
@@ -94,7 +95,7 @@
 
       <div class="form-group">
         <label for="username">Your Name <span class="optional">(Optional)</span></label>
-        <input type="text" id="username" name="username" aria-describedby="name-help" inputmode="text">
+        <input type="text" id="username" name="username" aria-describedby="name-help">
         <span id="name-help" class="sr-only">Enter your name if you want to be credited</span>
       </div>
 
@@ -114,7 +115,7 @@
     // Set max date to today for installation date
     document.addEventListener('DOMContentLoaded', function() {
       const today = new Date().toISOString().split('T')[0];
-      document.getElementById('installDate').setAttribute('max', today);
+      document.getElementById('installDate').max = today;
       
       // Update current year in footer
       document.getElementById('current-year').textContent = new Date().getFullYear();
