@@ -24,13 +24,11 @@
 
   <!-- JavaScript -->
   <script defer src="scripts/main.js"></script>
-
+  <script defer src="scripts/products.js"></script>
 </head>
 <body>
   
-  
   <header class="site-header" id="siteHeader">
-
     <div class="header-container">
       <div class="nav-header">
         <button id="themeToggle" aria-label="Toggle light/dark mode" aria-pressed="false">
@@ -39,27 +37,29 @@
         </button>
   
         <a href="index.html" class="logo-link">
-          <img src="images/hypethread_dark.webp" alt="HYPEthread Logo" class="logo" id="siteLogo" width="150" height="50" loading="lazy">
+          <picture>
+            <source srcset="images/hypethread_dark.webp" type="image/webp" media="(prefers-color-scheme: light)">
+            <source srcset="images/hypethread_light.webp" type="image/webp" media="(prefers-color-scheme: dark)">
+            <img src="images/hypethread_dark.webp" alt="HYPEthread Logo" class="logo" id="siteLogo" width="150" height="50" loading="eager">
+          </picture>
         </a>
       </div>
   
-      <!-- Move the menu toggle button here -->
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
         <span class="menu-icon" aria-hidden="true">&#9776;</span>
       </button>
-  
+
       <nav class="main-nav" aria-label="Main navigation">
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html" class="active" aria-current="page">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="products.html">Products</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="cart.html">Cart <span class="cart-count" aria-hidden="true">(0)</span></a></li>
+          <li><a href="cart.html">Cart <span class="cart-count" aria-hidden="true"></span></a></li>
         </ul>
       </nav>
     </div>
   </header>
-  
 
   <main id="main-content">
     <!-- Hero Carousel Section -->
@@ -70,7 +70,7 @@
           <picture class="hero-image">
             <source srcset="images/hero1.webp" type="image/webp">
             <source srcset="images/hero1.jpg" type="image/jpeg">
-            <img src="images/hero1.webp" alt="Test image" width="1920" height="800" loading="eager">
+            <img src="images/hero1.webp" alt="Streetwear collection showcase" width="1920" height="800" loading="eager">
           </picture>
         </div>
         
@@ -79,7 +79,7 @@
           <picture class="hero-image">
             <source srcset="images/hero2.webp" type="image/webp">
             <source srcset="images/hero2.jpg" type="image/jpeg">
-            <img src="images/heroimageb.webp" alt="New seasonal streetwear drops" width="1920" height="800" loading="lazy">
+            <img src="images/hero2.webp" alt="New seasonal streetwear drops" width="1920" height="800" loading="lazy">
           </picture>
         </div>
         
@@ -88,7 +88,7 @@
           <picture class="hero-image">
             <source srcset="images/hero3.webp" type="image/webp">
             <source srcset="images/hero3.jpg" type="image/jpeg">
-            <img src="images/heroimagec.webp" alt="Limited edition collaborations" width="1920" height="800" loading="lazy">
+            <img src="images/hero3.webp" alt="Limited edition collaborations" width="1920" height="800" loading="lazy">
           </picture>
         </div>
       </div>
@@ -105,7 +105,7 @@
       </div>
     </div>
   
-    <!-- Hero Content (now separate from carousel) -->
+    <!-- Hero Content -->
     <section class="hero-content" aria-labelledby="hero-heading">
       <div class="content-container">
         <h1 id="hero-heading">Welcome to HYPEthread</h1>
@@ -114,16 +114,15 @@
       </div>
     </section>
   
-  <!-- Featured Products Section -->
-<section class="featured" aria-labelledby="featured-heading">
-  <div class="section-container">
-    <h2 id="featured-heading"><span aria-hidden="true">🔥</span> Trending Now</h2>
-    <div class="item-grid" id="productGrid" role="list">
-      <!-- Products will be loaded dynamically from products.js -->
-    </div>
-  </div>
-</section>
-    
+    <!-- Featured Products Section -->
+    <section class="featured" aria-labelledby="featured-heading">
+      <div class="section-container">
+        <h2 id="featured-heading"><span aria-hidden="true">🔥</span> Trending Now</h2>
+        <div class="item-grid" id="productGrid" role="list">
+          <!-- Products will be loaded dynamically from products.js -->
+        </div>
+      </div>
+    </section>
   </main>
 
   <section class="brand-story">
@@ -142,9 +141,11 @@
     <div class="content-container">
       <h2>What Our Clients Say</h2>
       <div class="client-gallery">
-  
         <div class="client-card">
-          <img src="images/client1.webp" alt="Client wearing HYPEthread">
+          <picture>
+            <source srcset="images/client1.webp" type="image/webp">
+            <img src="images/client1.jpg" alt="Client wearing HYPEthread hoodie" loading="lazy" width="400" height="500">
+          </picture>
           <div class="testimonial-overlay">
             <p>“Absolutely love the hoodie! Super cozy and the colors pop.”</p>
             <strong>- @aminastyle</strong>
@@ -152,26 +153,29 @@
         </div>
   
         <div class="client-card">
-          <img src="images/client2.webp" alt="Client wearing HYPEthread">
+          <picture>
+            <source srcset="images/client2.webp" type="image/webp">
+            <img src="images/client2.jpg" alt="Client wearing HYPEthread jacket" loading="lazy" width="400" height="500">
+          </picture>
           <div class="testimonial-overlay">
-            <p>“Top-tier quality. This drop was 🔥 — can’t wait for the next one.”</p>
+            <p>“Top-tier quality. This drop was 🔥 — can't wait for the next one.”</p>
             <strong>- @jturbanwear</strong>
           </div>
         </div>
   
         <div class="client-card">
-          <img src="images/client3.jpg" alt="Client wearing HYPEthread">
+          <picture>
+            <source srcset="images/client3.webp" type="image/webp">
+            <img src="images/client3.jpg" alt="Client wearing HYPEthread joggers" loading="lazy" width="400" height="500">
+          </picture>
           <div class="testimonial-overlay">
             <p>“I get compliments every time I wear this jacket. So worth it!”</p>
             <strong>- @rileystreetstyle</strong>
           </div>
         </div>
-  
       </div>
     </div>
   </section>
-  
-  
   
   <section class="newsletter">
     <div class="content-container">
@@ -195,40 +199,28 @@
     </div>
   </footer>
   
-<!-- Back to Top button & JS at the very end of body -->
-<button id="backToTop" title="Go to top">&#8679;</button>
-<script>
-  const backToTopBtn = document.getElementById("backToTop");
+  <button id="backToTop" title="Go to top">&#8679;</button>
 
-  window.onscroll = function () {
-    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-      backToTopBtn.style.display = "block";
-    } else {
-      backToTopBtn.style.display = "none";
-    }
-  };
+  <script>
+    // Current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Back to Top button
+    const backToTopBtn = document.getElementById("backToTop");
+    window.onscroll = function() {
+      backToTopBtn.style.display = (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) 
+        ? "block" : "none";
+    };
+    backToTopBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  backToTopBtn.addEventListener("click", function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-</script>
-
-<!-- 👇 Add this script below the Back to Top one -->
-<script>
-  const header = document.getElementById("siteHeader");
-  let lastScrollTop = 0;
-
-  window.addEventListener("scroll", function () {
-    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (currentScroll > lastScrollTop) {
-      header.style.transform = "translateY(-100%)";
-    } else {
-      header.style.transform = "translateY(0)";
-    }
-
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-  });
-</script>
+    // Hide header on scroll down
+    const header = document.getElementById("siteHeader");
+    let lastScrollTop = 0;
+    window.addEventListener("scroll", function() {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      header.style.transform = currentScroll > lastScrollTop ? "translateY(-100%)" : "translateY(0)";
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+  </script>
 </body>
 </html>
