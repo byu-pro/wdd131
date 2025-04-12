@@ -277,7 +277,102 @@
   body.light-mode .item-card p {
     color: #555;
   }
+  /* ==============================
+  PRODUCTS PAGE SPECIFIC STYLES
+============================== */
+.products .item-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+  }
   
+  .item-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .item-card img {
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .item-card:hover img {
+    transform: scale(1.05);
+  }
+  
+  .product-info {
+    padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .product-info h3 {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 0.5rem;
+    color: white;
+  }
+  
+  .product-desc {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+  }
+  
+  .product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+  }
+  
+  .price {
+    font-weight: bold;
+    color: var(--primary);
+    font-size: 1.1rem;
+  }
+  
+  .add-to-cart {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  .add-to-cart:hover {
+    background-color: var(--primary-hover);
+  }
+  
+  .add-to-cart:disabled {
+    background-color: #4CAF50;
+    cursor: not-allowed;
+  }
+  
+  .loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: var(--primary);
+    animation: spin 1s ease-in-out infinite;
+    margin: 2rem auto;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  .no-products {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #aaa;
+    font-size: 1.2rem;
+  }
   /* ==============================
     RESPONSIVE BREAKPOINTS
   ============================== */
@@ -376,3 +471,4 @@
   .item-card:nth-child(1) { animation-delay: 0.2s; }
   .item-card:nth-child(2) { animation-delay: 0.4s; }
   .item-card:nth-child(3) { animation-delay: 0.6s; }
+
