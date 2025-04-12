@@ -26,34 +26,37 @@
   <script defer src="scripts/main.js"></script>
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
+  
   
   <header class="site-header">
     <div class="header-container">
-      <button id="themeToggle" aria-label="Toggle light/dark mode" aria-pressed="false">
-        <span class="theme-icon" aria-hidden="true">☀️</span>
-        <span class="visually-hidden">Toggle dark mode</span>
-      </button>
-      <a href="index.html" class="logo-link">
-        <img src="images/hypethreaddark.png" alt="HYPEthread Logo" class="logo" id="siteLogo" width="150" height="50" loading="lazy">
-      </a>
+      <div class="nav-header">
+        <button id="themeToggle" aria-label="Toggle light/dark mode" aria-pressed="false">
+          <span class="theme-icon" aria-hidden="true">☀️</span>
+          <span class="visually-hidden">Toggle dark mode</span>
+        </button>
+  
+        <a href="index.html" class="logo-link">
+          <img src="images/hypethreaddark.png" alt="HYPEthread Logo" class="logo" id="siteLogo" width="150" height="50" loading="lazy">
+        </a>
+  
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+          <span class="menu-icon" aria-hidden="true">&#9776;</span>
+        </button>
+      </div>
+  
       <nav class="main-nav" aria-label="Main navigation">
-        <div class="nav-container">
-          <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
-            <span class="menu-icon" aria-hidden="true">&#9776;</span>
-            <span class="visually-hidden">Menu</span>
-          </button>
-          <ul class="nav-links" id="navLinks">
-            <li><a href="index.html" class="active" aria-current="page">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="cart.html">Cart <span class="cart-count" aria-hidden="true">(0)</span></a></li>
-          </ul>
-        </div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="cart.html">Cart <span class="cart-count" aria-hidden="true">(0)</span></a></li>
+        </ul>
       </nav>
     </div>
   </header>
+  
 
   <main id="main-content">
     <!-- Hero Carousel Section -->
