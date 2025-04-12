@@ -96,6 +96,20 @@ header {
   transition: var(--transition);
 }
 
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
 .logo {
   width: 100px;
   height: auto;
@@ -145,6 +159,25 @@ nav a.active {
 
 #themeToggle:hover {
   transform: scale(1.1);
+}
+
+/* ==============================
+  MENU TOGGLE
+============================== */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 2rem;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 1rem;
+  order: 1;
+}
+
+.menu-toggle:hover {
+  color: var(--primary);
 }
 
 /* ==============================
@@ -319,31 +352,13 @@ footer a {
 }
 
 /* ==============================
-  MOBILE MENU
+  NAVIGATION LINKS
 ============================== */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--text-light);
-  font-size: 2rem;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.nav-container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
 .nav-links {
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  z-index: 999; /* Added */
+  z-index: 999;
 }
 
 /* ==============================
@@ -464,15 +479,51 @@ body.light-mode .item-card p {
 }
 
 /* ==============================
+  ANIMATIONS
+============================== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.item-card {
+  animation: fadeIn 0.5s ease-out;
+  animation-fill-mode: backwards;
+}
+
+.item-card:nth-child(1) { animation-delay: 0.2s; }
+.item-card:nth-child(2) { animation-delay: 0.4s; }
+.item-card:nth-child(3) { animation-delay: 0.6s; }
+
+footer ul,
+footer ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer li::before,
+footer li::after {
+  content: none;
+}
+
+/* ==============================
   RESPONSIVE BREAKPOINTS
 ============================== */
 @media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .menu-toggle {
     display: block;
-    position: absolute;
-    top: -10px;
-    right: 10px;
-    z-index: 1000;
+    position: static;
+    margin: 1rem 0;
   }
 
   .nav-links {
@@ -481,16 +532,13 @@ body.light-mode .item-card p {
     background-color: var(--bg-darker);
     width: 100%;
     padding: 1rem 0;
-    position: absolute;
-    top: 3rem;
-    left: 0;
+    position: static;
     text-align: center;
-    border-top: 1px solid #333;
-    z-index: 999;
   }
 
   .nav-links.show {
     display: flex;
+    margin-top: 1rem;
   }
 
   body.light-mode .nav-links {
@@ -559,37 +607,4 @@ body.light-mode .item-card p {
   nav ul {
     gap: 3rem;
   }
-}
-
-/* ==============================
-  ANIMATIONS
-============================== */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.hero {
-  animation: fadeIn 0.8s ease-out;
-}
-
-.item-card {
-  animation: fadeIn 0.5s ease-out;
-  animation-fill-mode: backwards;
-}
-
-.item-card:nth-child(1) { animation-delay: 0.2s; }
-.item-card:nth-child(2) { animation-delay: 0.4s; }
-.item-card:nth-child(3) { animation-delay: 0.6s; }
-footer ul,
-
-footer ol {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-footer li::before,
-footer li::after {
-  content: none;
 }
