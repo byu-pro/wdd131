@@ -320,3 +320,4 @@ document.addEventListener("DOMContentLoaded", () => {
     renderProducts();
     updateCartCounter();
   });
+  
