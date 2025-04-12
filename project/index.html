@@ -56,14 +56,50 @@
   </header>
 
   <main id="main-content">
+    <!-- Hero Carousel Section -->
     <div class="hero-container">
-      <picture class="hero-image">
-        <source srcset="images/hero.webp" type="image/webp">
-        <source srcset="images/hero.jpg" type="image/jpeg">
-        <img src="images/hero.jpg" alt="Models wearing latest streetwear fashion" width="1920" height="800" loading="eager">
-      </picture>
+      <div class="hero-carousel" id="heroCarousel">
+        <!-- Slide 1 -->
+        <div class="hero-slide">
+          <picture class="hero-image">
+            <source srcset="images/hero1.webp" type="image/webp">
+            <source srcset="images/hero1.jpg" type="image/jpeg">
+            <img src="images/heroimagea.webp" alt="Models wearing latest streetwear collection" width="1920" height="800" loading="eager">
+          </picture>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="hero-slide">
+          <picture class="hero-image">
+            <source srcset="images/hero2.webp" type="image/webp">
+            <source srcset="images/hero2.jpg" type="image/jpeg">
+            <img src="images/heroimageb.webp" alt="New seasonal streetwear drops" width="1920" height="800" loading="lazy">
+          </picture>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="hero-slide">
+          <picture class="hero-image">
+            <source srcset="images/hero3.webp" type="image/webp">
+            <source srcset="images/hero3.jpg" type="image/jpeg">
+            <img src="images/heroimagec.webp" alt="Limited edition collaborations" width="1920" height="800" loading="lazy">
+          </picture>
+        </div>
+      </div>
+  
+      <!-- Carousel Controls -->
+      <div class="carousel-controls">
+        <button class="carousel-btn prev-btn" aria-label="Previous slide">&#10094;</button>
+        <button class="carousel-btn next-btn" aria-label="Next slide">&#10095;</button>
+      </div>
+      
+      <!-- Carousel Indicators -->
+      <div class="carousel-indicators" id="carouselIndicators" aria-label="Slide navigation">
+        <!-- Indicators will be added by JavaScript -->
+      </div>
     </div>
-
+  
+    <!-- Hero Content (now separate from carousel) -->
     <section class="hero-content" aria-labelledby="hero-heading">
       <div class="content-container">
         <h1 id="hero-heading">Welcome to HYPEthread</h1>
@@ -71,7 +107,8 @@
         <a href="products.html" class="cta-button">Shop Now</a>
       </div>
     </section>
-
+  
+    <!-- Featured Products Section -->
     <section class="featured" aria-labelledby="featured-heading">
       <div class="section-container">
         <h2 id="featured-heading"><span aria-hidden="true">🔥</span> Trending Now</h2>

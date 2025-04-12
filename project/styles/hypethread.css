@@ -389,7 +389,115 @@
   .add-to-cart:hover {
     background-color: var(--primary-hover);
   }
+  /* ===== HERO IMAGE CURVED CORNERS ===== */
+.hero-image {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.hero-image img {
+  border-radius: inherit;
+}
+/* ===== HERO CAROUSEL STYLES ===== */
+.hero-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.hero-carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.hero-slide {
+  min-width: 100%;
+  position: relative;
+}
+
+.hero-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 1rem;
+  z-index: 10;
+}
+
+.carousel-btn {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background: rgba(106, 13, 173, 0.8);
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: var(--primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-container {
+    border-radius: 0.75rem;
+  }
   
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+  
+  .indicator {
+    width: 10px;
+    height: 10px;
+  }
+}
+/* Optional: Adjust corner radius on mobile */
+@media (max-width: 768px) {
+  .hero-image {
+    border-radius: 0.75rem;
+  }
+}
   .add-to-cart:disabled {
     background-color: #4CAF50;
     cursor: not-allowed;
