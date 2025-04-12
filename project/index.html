@@ -1,398 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="HYPEthread - Streetwear fashion trends and culture."
-    />
-    <title>HYPEthread | Home</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HYPEthread - Streetwear fashion trends and culture.">
+  <title>HYPEthread | Home</title>
 
-    <!-- Preload logos -->
-    <link
-      rel="preload"
-      href="images/hypethreadlight.png"
-      as="image"
-      type="image/png"
-    />
-    <link
-      rel="preload"
-      href="images/hypethreaddark.png"
-      as="image"
-      type="image/png"
-    />
+  <!-- Preload logos -->
+  <link rel="preload" href="images/hypethreadlight.png" as="image" type="image/png">
+  <link rel="preload" href="images/hypethreaddark.png" as="image" type="image/png">
 
-    <!-- Favicons -->
-    <link
-      rel="icon"
-      href="images/hypethreadlight.png"
-      media="(prefers-color-scheme: light)"
-    />
-    <link
-      rel="icon"
-      href="images/hypethreaddark.png"
-      media="(prefers-color-scheme: dark)"
-    />
+  <!-- Favicons -->
+  <link rel="icon" href="images/hypethreadlight.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="images/hypethreaddark.png" media="(prefers-color-scheme: dark)">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="styles/hypethread.css" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/hypethread.css">
 
-    <!-- JavaScript -->
-    <script defer src="scripts/main.js"></script>
-  </head>
-  <body>
-    <!-- Header remains exactly the same -->
-    <header class="site-header" id="siteHeader">
-      <div class="header-container">
-        <div class="nav-header">
-          <button
-            id="themeToggle"
-            aria-label="Toggle light/dark mode"
-            aria-pressed="false"
-          >
-            <span class="theme-icon" aria-hidden="true">☀️</span>
-            <span class="visually-hidden">Toggle dark mode</span>
-          </button>
-
-          <a href="index.html" class="logo-link">
-            <img
-              src="images/hypethreaddark.png"
-              alt="HYPEthread Logo"
-              class="logo"
-              id="siteLogo"
-              width="150"
-              height="50"
-              loading="lazy"
-            />
-          </a>
-        </div>
-
-        <button
-          class="menu-toggle"
-          id="menuToggle"
-          aria-label="Toggle navigation"
-          aria-expanded="false"
-          aria-controls="navLinks"
-        >
-          <span class="menu-icon" aria-hidden="true">&#9776;</span>
+  <!-- JavaScript -->
+  <script defer src="scripts/main.js"></script>
+</head>
+<body>
+  <!-- Header remains exactly the same -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-container">
+      <div class="nav-header">
+        <button id="themeToggle" aria-label="Toggle light/dark mode" aria-pressed="false">
+          <span class="theme-icon" aria-hidden="true">☀️</span>
+          <span class="visually-hidden">Toggle dark mode</span>
         </button>
 
-        <nav class="main-nav" aria-label="Main navigation">
-          <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">Home</a></li>
-            <li>
-              <a href="about.html" class="active" aria-current="page">About</a>
-            </li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="cart.html">Cart</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <main id="main-content">
-      <!-- Hero Carousel Section -->
-      <div class="hero-container">
-        <div class="hero-carousel" id="heroCarousel">
-          <!-- Slide 1 -->
-          <div class="hero-slide">
-            <picture class="hero-image">
-              <source srcset="images/hero1.webp" type="image/webp" />
-              <source srcset="images/hero1.jpg" type="image/jpeg" />
-              <img
-                src="images/hero1.webp"
-                alt="Streetwear collection showcase"
-                width="1920"
-                height="800"
-                loading="eager"
-              />
-            </picture>
-          </div>
-
-          <!-- Slide 2 -->
-          <div class="hero-slide">
-            <picture class="hero-image">
-              <source srcset="images/hero2.webp" type="image/webp" />
-              <source srcset="images/hero2.jpg" type="image/jpeg" />
-              <img
-                src="images/hero2.webp"
-                alt="New seasonal streetwear drops"
-                width="1920"
-                height="800"
-                loading="lazy"
-              />
-            </picture>
-          </div>
-
-          <!-- Slide 3 -->
-          <div class="hero-slide">
-            <picture class="hero-image">
-              <source srcset="images/hero3.webp" type="image/webp" />
-              <source srcset="images/hero3.jpg" type="image/jpeg" />
-              <img
-                src="images/hero3.webp"
-                alt="Limited edition collaborations"
-                width="1920"
-                height="800"
-                loading="lazy"
-              />
-            </picture>
-          </div>
-        </div>
-
-        <!-- Carousel Controls -->
-        <div class="carousel-controls">
-          <button class="carousel-btn prev-btn" aria-label="Previous slide">
-            &#10094;
-          </button>
-          <button class="carousel-btn next-btn" aria-label="Next slide">
-            &#10095;
-          </button>
-        </div>
-
-        <!-- Carousel Indicators -->
-        <div
-          class="carousel-indicators"
-          id="carouselIndicators"
-          aria-label="Slide navigation"
-        >
-          <!-- Indicators will be added by JavaScript -->
-        </div>
+        <a href="index.html" class="logo-link">
+          <img src="images/hypethreaddark.png" alt="HYPEthread Logo" class="logo" id="siteLogo" width="150" height="50" loading="lazy">
+        </a>
       </div>
 
-      <!-- Hero Content -->
-      <section class="hero-content" aria-labelledby="hero-heading">
-        <div class="content-container">
-          <h1 id="hero-heading">Welcome to HYPEthread</h1>
-          <p class="hero-text">
-            Where streetwear meets culture. Discover the latest hype.
-          </p>
-          <a href="products.html" class="cta-button">Shop Now</a>
-        </div>
-      </section>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <span class="menu-icon" aria-hidden="true">&#9776;</span>
+      </button>
 
-      <!-- Featured Products Section -->
-      <section class="featured" aria-labelledby="featured-heading">
-        <div class="section-container">
-          <h2 id="featured-heading">
-            <span aria-hidden="true">🔥</span> Trending Now
-          </h2>
-          <div class="item-grid" role="list">
-            <!-- Product 1 -->
-            <div class="product-card">
-              <div class="product-image-container">
-                <img
-                  src="images/products/oversized-hoodie.webp"
-                  alt="OG Logo Hoodie"
-                  loading="lazy"
-                  width="400"
-                  height="500"
-                />
-              </div>
-              <div class="product-info">
-                <h3>OG Logo Hoodie</h3>
-                <p class="price">$59.99</p>
-                <div class="product-actions">
-                  <a href="products.html" class="view-details">View Details</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="product-card">
-              <div class="product-image-container">
-                <img
-                  src="images/products/sneakers.webp"
-                  alt="High-Top Sneakers"
-                  loading="lazy"
-                  width="400"
-                  height="500"
-                />
-              </div>
-              <div class="product-info">
-                <h3>High-Top Sneakers</h3>
-                <p class="price">$129.99</p>
-                <div class="product-actions">
-                  <a href="products.html" class="view-details">View Details</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="product-card">
-              <div class="product-image-container">
-                <img
-                  src="images/products/pants.webp"
-                  alt="Utility Cargo Pants"
-                  loading="lazy"
-                  width="400"
-                  height="500"
-                />
-              </div>
-              <div class="product-info">
-                <h3>Utility Cargo Pants</h3>
-                <p class="price">$49.99</p>
-                <div class="product-actions">
-                  <a href="products.html" class="view-details">View Details</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- View All Button -->
-          <div class="view-all-container">
-            <a href="products.html" class="cta-button">View All Items</a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <section class="brand-story">
-      <div class="content-container">
-        <h2>Our Story</h2>
-        <p>
-          Born in the heart of street culture, HYPEthread is more than just
-          clothing — it's a lifestyle. What started as a passion project by
-          creators in the city evolved into a movement. We believe in bold
-          expression, fearless identity, and high-quality threads made to last.
-          Join the hype, wear the culture.
-        </p>
-      </div>
-    </section>
-
-    <section class="testimonials">
-      <div class="content-container">
-        <h2>What Our Clients Say</h2>
-        <div class="client-gallery">
-          <div class="client-card">
-            <picture>
-              <source srcset="images/client1.webp" type="image/webp" />
-              <img
-                src="images/client1.jpg"
-                alt="Client wearing HYPEthread hoodie"
-                loading="lazy"
-                width="400"
-                height="500"
-              />
-            </picture>
-            <div class="testimonial-overlay">
-              <p>
-                “Absolutely love the hoodie! Super cozy and the colors pop.”
-              </p>
-              <strong>- @aminastyle</strong>
-            </div>
-          </div>
-
-          <div class="client-card">
-            <picture>
-              <source srcset="images/client2.webp" type="image/webp" />
-              <img
-                src="images/client2.jpg"
-                alt="Client wearing HYPEthread jacket"
-                loading="lazy"
-                width="400"
-                height="500"
-              />
-            </picture>
-            <div class="testimonial-overlay">
-              <p>
-                “Top-tier quality. This drop was 🔥 — can't wait for the next
-                one.”
-              </p>
-              <strong>- @jturbanwear</strong>
-            </div>
-          </div>
-
-          <div class="client-card">
-            <picture>
-              <source srcset="images/client3.webp" type="image/webp" />
-              <img
-                src="images/client3.jpg"
-                alt="Client wearing HYPEthread joggers"
-                loading="lazy"
-                width="400"
-                height="500"
-              />
-            </picture>
-            <div class="testimonial-overlay">
-              <p>
-                “I get compliments every time I wear this jacket. So worth it!”
-              </p>
-              <strong>- @rileystreetstyle</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="newsletter">
-      <div class="content-container">
-        <h2>Join the HYPE</h2>
-        <p>
-          Subscribe to our newsletter and stay updated on new drops, exclusive
-          deals, and fashion insights.
-        </p>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Enter your email" required />
-          <button type="submit">Subscribe</button>
-        </form>
-      </div>
-    </section>
-
-    <footer class="site-footer" role="contentinfo">
-      <div class="footer-container">
-        <p>
-          &copy; <span id="current-year">2025</span> HYPEthread |
-          <a href="references.html">References</a>
-        </p>
-        <ul class="footer-links">
-          <li><a href="privacy.html">Privacy Policy</a></li>
-          <li><a href="terms.html">Terms of Service</a></li>
-          <li><a href="siteplan.html">Siteplan</a></li>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active" aria-current="page">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="cart.html">Cart</a></li>
         </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Carousel Section -->
+    <div class="hero-container">
+      <div class="hero-carousel" id="heroCarousel">
+        <!-- Slide 1 -->
+        <div class="hero-slide">
+          <picture class="hero-image">
+            <source srcset="images/hero1.webp" type="image/webp">
+            <source srcset="images/hero1.jpg" type="image/jpeg">
+            <img src="images/hero1.webp" alt="Streetwear collection showcase" width="1920" height="800" loading="eager">
+          </picture>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="hero-slide">
+          <picture class="hero-image">
+            <source srcset="images/hero2.webp" type="image/webp">
+            <source srcset="images/hero2.jpg" type="image/jpeg">
+            <img src="images/hero2.webp" alt="New seasonal streetwear drops" width="1920" height="800" loading="lazy">
+          </picture>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="hero-slide">
+          <picture class="hero-image">
+            <source srcset="images/hero3.webp" type="image/webp">
+            <source srcset="images/hero3.jpg" type="image/jpeg">
+            <img src="images/hero3.webp" alt="Limited edition collaborations" width="1920" height="800" loading="lazy">
+          </picture>
+        </div>
       </div>
-    </footer>
 
-    <button id="backToTop" title="Go to top">&#8679;</button>
+      <!-- Carousel Controls -->
+      <div class="carousel-controls">
+        <button class="carousel-btn prev-btn" aria-label="Previous slide">&#10094;</button>
+        <button class="carousel-btn next-btn" aria-label="Next slide">&#10095;</button>
+      </div>
 
-    <script>
-      // Current year in footer
-      document.getElementById("current-year").textContent =
-        new Date().getFullYear();
+      <!-- Carousel Indicators -->
+      <div class="carousel-indicators" id="carouselIndicators" aria-label="Slide navigation">
+        <!-- Indicators will be added by JavaScript -->
+      </div>
+    </div>
 
-      // Back to Top button
-      const backToTopBtn = document.getElementById("backToTop");
-      window.onscroll = function () {
-        backToTopBtn.style.display =
-          document.body.scrollTop > 200 ||
-          document.documentElement.scrollTop > 200
-            ? "block"
-            : "none";
-      };
-      backToTopBtn.addEventListener("click", () =>
-        window.scrollTo({ top: 0, behavior: "smooth" })
-      );
+    <!-- Hero Content -->
+    <section class="hero-content" aria-labelledby="hero-heading">
+      <div class="content-container">
+        <h1 id="hero-heading">Welcome to HYPEthread</h1>
+        <p class="hero-text">Where streetwear meets culture. Discover the latest hype.</p>
+        <a href="products.html" class="cta-button">Shop Now</a>
+      </div>
+    </section>
 
-      // Hide header on scroll down
-      const header = document.getElementById("siteHeader");
-      let lastScrollTop = 0;
-      window.addEventListener("scroll", function () {
-        const currentScroll =
-          window.pageYOffset || document.documentElement.scrollTop;
-        header.style.transform =
-          currentScroll > lastScrollTop ? "translateY(-100%)" : "translateY(0)";
-        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-      });
-    </script>
-  </body>
+    <!-- Featured Products Section -->
+    <section class="featured" aria-labelledby="featured-heading">
+      <div class="section-container">
+        <h2 id="featured-heading"><span aria-hidden="true">🔥</span> Trending Now</h2>
+        <div class="item-grid" role="list">
+          <!-- Product 1 -->
+          <div class="product-card">
+            <div class="product-image-container">
+              <img src="images/products/oversized-hoodie.webp" alt="OG Logo Hoodie" loading="lazy" width="400" height="500">
+            </div>
+            <div class="product-info">
+              <h3>OG Logo Hoodie</h3>
+              <p class="price">$59.99</p>
+              <div class="product-actions">
+                <a href="products.html" class="view-details">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="product-card">
+            <div class="product-image-container">
+              <img src="images/products/sneakers.webp" alt="High-Top Sneakers" loading="lazy" width="400" height="500">
+            </div>
+            <div class="product-info">
+              <h3>High-Top Sneakers</h3>
+              <p class="price">$129.99</p>
+              <div class="product-actions">
+                <a href="products.html" class="view-details">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="product-card">
+            <div class="product-image-container">
+              <img src="images/products/pants.webp" alt="Utility Cargo Pants" loading="lazy" width="400" height="500">
+            </div>
+            <div class="product-info">
+              <h3>Utility Cargo Pants</h3>
+              <p class="price">$49.99</p>
+              <div class="product-actions">
+                <a href="products.html" class="view-details">View Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- View All Button -->
+        <div class="view-all-container">
+          <a href="products.html" class="cta-button">View All Items</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="brand-story">
+    <div class="content-container">
+      <h2>Our Story</h2>
+      <p>
+        Born in the heart of street culture, HYPEthread is more than just clothing — it's a lifestyle. What started as a passion project by creators in the city evolved into a movement. We believe in bold expression, fearless identity, and high-quality threads made to last. Join the hype, wear the culture.
+      </p>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="content-container">
+      <h2>What Our Clients Say</h2>
+      <div class="client-gallery">
+        <div class="client-card">
+          <picture>
+            <source srcset="images/client1.webp" type="image/webp">
+            <img src="images/client1.jpg" alt="Client wearing HYPEthread hoodie" loading="lazy" width="400" height="500">
+          </picture>
+          <div class="testimonial-overlay">
+            <p>“Absolutely love the hoodie! Super cozy and the colors pop.”</p>
+            <strong>- @aminastyle</strong>
+          </div>
+        </div>
+
+        <div class="client-card">
+          <picture>
+            <source srcset="images/client2.webp" type="image/webp">
+            <img src="images/client2.jpg" alt="Client wearing HYPEthread jacket" loading="lazy" width="400" height="500">
+          </picture>
+          <div class="testimonial-overlay">
+            <p>“Top-tier quality. This drop was 🔥 — can't wait for the next one.”</p>
+            <strong>- @jturbanwear</strong>
+          </div>
+        </div>
+
+        <div class="client-card">
+          <picture>
+            <source srcset="images/client3.webp" type="image/webp">
+            <img src="images/client3.jpg" alt="Client wearing HYPEthread joggers" loading="lazy" width="400" height="500">
+          </picture>
+          <div class="testimonial-overlay">
+            <p>“I get compliments every time I wear this jacket. So worth it!”</p>
+            <strong>- @rileystreetstyle</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <div class="content-container">
+      <h2>Join the HYPE</h2>
+      <p>
+        Subscribe to our newsletter and stay updated on new drops, exclusive deals, and fashion insights.
+      </p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      <p>&copy; <span id="current-year">2025</span> HYPEthread | <a href="references.html">References</a></p>
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="siteplan.html">Siteplan</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <button id="backToTop" title="Go to top">&#8679;</button>
+
+  <script>
+    // Current year in footer
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
+
+    // Back to Top button
+    const backToTopBtn = document.getElementById("backToTop");
+    window.onscroll = function () {
+      backToTopBtn.style.display =
+        document.body.scrollTop > 200 ||
+        document.documentElement.scrollTop > 200
+          ? "block"
+          : "none";
+    };
+    backToTopBtn.addEventListener("click", () =>
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    );
+
+    // Hide header on scroll down
+    const header = document.getElementById("siteHeader");
+    let lastScrollTop = 0;
+    window.addEventListener("scroll", function () {
+      const currentScroll =
+        window.pageYOffset || document.documentElement.scrollTop;
+      header.style.transform =
+        currentScroll > lastScrollTop ? "translateY(-100%)" : "translateY(0)";
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+  </script>
+</body>
 </html>
