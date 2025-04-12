@@ -2203,3 +2203,127 @@ textarea {
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+/* General mobile improvements */
+@media (max-width: 600px) {
+  .about-section .content-container {
+    flex-direction: column;
+  }
+
+  .mission-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-card {
+    margin-bottom: 2rem;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-form input,
+  .newsletter-form button {
+    width: 100%;
+  }
+
+  .values-section {
+    padding: 2rem 1rem;
+  }
+
+  .values-statement p {
+    font-size: 1rem;
+  }
+}
+/* =======================
+   HYPER MOBILE ENHANCEMENTS
+========================== */
+@media (max-width: 767px) {
+  /* General containers */
+  .content-container,
+  .contact-container {
+    padding: 0 1rem;
+  }
+
+  /* Hero text scaling */
+  .about-hero h1,
+  .contact-hero h1 {
+    font-size: 2rem;
+  }
+
+  .about-hero .subtitle,
+  .contact-hero .subtitle {
+    font-size: 1rem;
+  }
+
+  /* Stack image/text vertically */
+  .about-section .content-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .team-grid,
+  .mission-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Stack form + info */
+  .contact-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-form,
+  .contact-info-card {
+    padding: 1rem;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-form input,
+  .newsletter-form button {
+    width: 100%;
+  }
+
+  /* Responsive map */
+  .map-container {
+    padding-bottom: 75%; /* taller on mobile */
+  }
+
+  /* Resize icons/text in contact info */
+  .info-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+
+  .info-content h3 {
+    font-size: 1rem;
+  }
+
+  .info-content a,
+  .info-content address {
+    font-size: 0.9rem;
+  }
+
+  .social-links .social-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .submit-btn {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
+
+  .team-card {
+    margin-bottom: 2rem;
+  }
+}
