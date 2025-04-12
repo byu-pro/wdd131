@@ -6,6 +6,10 @@
   <meta name="description" content="Shop the latest HYPEthread streetwear collections." />
   <title>HYPEthread | Products</title>
   
+  <!-- Preload logos -->
+  <link rel="preload" href="images/hypethreadlight.png" as="image">
+  <link rel="preload" href="images/hypethreaddark.png" as="image">
+
   <!-- Favicons -->
   <link rel="icon" href="images/hypethreadlight.png" media="(prefers-color-scheme: light)">
   <link rel="icon" href="images/hypethreaddark.png" media="(prefers-color-scheme: dark)">
@@ -17,21 +21,24 @@
   <link rel="stylesheet" href="styles/hypethread.css" />
 
   <!-- JavaScript -->
+  <script defer src="scripts/main.js"></script>
   <script defer src="scripts/products.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  
   <header>
     <button id="themeToggle" aria-label="Toggle light/dark mode">☀️</button>
-    <img src="images/logo.png" alt="HYPEthread Logo" class="logo" />
+    <img src="images/hypethreaddark.png" alt="HYPEthread Logo" class="logo" id="siteLogo" width="150" height="50" />
     <nav>
       <div class="nav-container">
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
           &#9776;
         </button>
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="products.html" class="active">Products</a></li>
+          <li><a href="products.html" class="active" aria-current="page">Products</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="cart.html" id="cartLink">Cart <span id="cartCounter"></span></a></li>
         </ul>
@@ -39,7 +46,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="products">
       <h1>Latest Drops</h1>
       <div class="collection-filter">

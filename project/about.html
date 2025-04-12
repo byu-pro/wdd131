@@ -6,6 +6,10 @@
   <meta name="description" content="Learn about HYPEthread's mission and streetwear culture." />
   <title>HYPEthread | About</title>
   
+  <!-- Preload logos -->
+  <link rel="preload" href="images/hypethreadlight.png" as="image">
+  <link rel="preload" href="images/hypethreaddark.png" as="image">
+
   <!-- Favicons -->
   <link rel="icon" href="images/hypethreadlight.png" media="(prefers-color-scheme: light)">
   <link rel="icon" href="images/hypethreaddark.png" media="(prefers-color-scheme: dark)">
@@ -20,17 +24,19 @@
   <script defer src="scripts/main.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  
   <header>
     <button id="themeToggle" aria-label="Toggle light/dark mode">☀️</button>
-    <img src="images/logo.png" alt="HYPEthread Logo" class="logo" />
+    <img src="images/hypethreaddark.png" alt="HYPEthread Logo" class="logo" id="siteLogo" width="150" height="50" />
     <nav>
       <div class="nav-container">
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
           &#9776;
         </button>
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html">Home</a></li>
-          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="about.html" class="active" aria-current="page">About</a></li>
           <li><a href="products.html">Products</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="cart.html">Cart</a></li>
@@ -39,10 +45,10 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="content">
       <h1>Our Story</h1>
-      <img src="images/about-hero.jpg" alt="Streetwear culture" loading="lazy" class="content-hero">
+      <img src="images/about-hero.jpg" alt="Streetwear culture" loading="lazy" class="content-hero" width="800" height="450">
       <p>Founded in 2023, HYPEthread emerged from a passion for streetwear culture and the desire to create clothing that speaks to individuality.</p>
       
       <h2>The Movement</h2>
@@ -50,12 +56,12 @@
       
       <div class="team-grid">
         <div class="team-card">
-          <img src="images/team/designer.jpg" alt="Lead Designer">
+          <img src="images/team/designer.jpg" alt="Lead Designer" width="300" height="300">
           <h3>Alex Rivera</h3>
           <p>Lead Designer</p>
         </div>
         <div class="team-card">
-          <img src="images/team/ceo.jpg" alt="Founder & CEO">
+          <img src="images/team/ceo.jpg" alt="Founder & CEO" width="300" height="300">
           <h3>Jordan Chen</h3>
           <p>Founder & CEO</p>
         </div>
