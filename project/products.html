@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="HYPEthread - Streetwear fashion trends and culture.">
-  <title>HYPEthread | Home</title>
+  <meta name="description" content="Discover HYPEthread's latest streetwear collection - hoodies, tees, footwear and more">
+  <title>Streetwear Collection | HYPEthread</title>
 
   <!-- Preload logos -->
   <link rel="preload" href="images/hypethreadlight.png" as="image" type="image/png">
@@ -17,7 +17,10 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- CSS -->
   <link rel="stylesheet" href="styles/hypethread.css">
@@ -28,9 +31,8 @@
 </head>
 <body>
   
-  
+  <!-- Header remains exactly the same -->
   <header class="site-header" id="siteHeader">
-
     <div class="header-container">
       <div class="nav-header">
         <button id="themeToggle" aria-label="Toggle light/dark mode" aria-pressed="false">
@@ -43,7 +45,6 @@
         </a>
       </div>
   
-      <!-- Move the menu toggle button here -->
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
         <span class="menu-icon" aria-hidden="true">&#9776;</span>
       </button>
@@ -56,42 +57,123 @@
           <li><a href="contact.html">Contact</a></li>
           <li><a href="cart.html" id="cartLink">Cart <span id="cartCounter"></span></a></li>
         </ul>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </header>
 
   <main id="main-content">
-    <section class="products">
-      <h1>Latest Drops</h1>
-      <div class="collection-filter">
-        <button class="filter-btn active" data-category="all">All</button>
-        <button class="filter-btn" data-category="hoodies">Hoodies</button>
-        <button class="filter-btn" data-category="tees">T-Shirts</button>
-        <button class="filter-btn" data-category="footwear">Footwear</button>
-        <button class="filter-btn" data-category="bottoms">Bottoms</button>
-        <button class="filter-btn" data-category="accessories">Accessories</button>
-        <button class="filter-btn" data-category="outerwear">Outerwear</button>
+    <!-- Products Hero -->
+    <section class="products-hero">
+      <div class="hero-content">
+        <h1>Streetwear Essentials</h1>
+        <p class="subtitle">Curated drops for the culture</p>
       </div>
-  
-      <div class="item-grid" id="fullProductGrid">
-        <!-- Products will load here dynamically -->
-        <div class="loading-spinner"></div>
+    </section>
+
+    <!-- Products Main Section -->
+    <section class="products-section">
+      <div class="section-container">
+        <!-- Filter Controls -->
+        <div class="filter-controls">
+          <div class="filter-group">
+            <button class="filter-btn active" data-category="all">
+              <span>All Items</span>
+            </button>
+            <button class="filter-btn" data-category="hoodies">
+              <i class="fas fa-hoodie"></i>
+              <span>Hoodies</span>
+            </button>
+            <button class="filter-btn" data-category="tees">
+              <i class="fas fa-tshirt"></i>
+              <span>T-Shirts</span>
+            </button>
+            <button class="filter-btn" data-category="footwear">
+              <i class="fas fa-shoe-prints"></i>
+              <span>Footwear</span>
+            </button>
+          </div>
+          
+          <div class="filter-group">
+            <button class="filter-btn" data-category="bottoms">
+              <i class="fas fa-vest"></i>
+              <span>Bottoms</span>
+            </button>
+            <button class="filter-btn" data-category="accessories">
+              <i class="fas fa-hat-cowboy"></i>
+              <span>Accessories</span>
+            </button>
+            <button class="filter-btn" data-category="outerwear">
+              <i class="fas fa-jacket"></i>
+              <span>Outerwear</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Sort Controls -->
+        <div class="sort-controls">
+          <label for="sortBy">Sort by:</label>
+          <select id="sortBy" class="styled-select">
+            <option value="featured">Featured</option>
+            <option value="newest">Newest</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="popular">Most Popular</option>
+          </select>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="product-grid" id="fullProductGrid">
+          <!-- Products will load here dynamically -->
+          <div class="loading-spinner"></div>
+        </div>
+
+        <!-- Infinite Scroll Trigger -->
+        <div class="load-more" id="loadMore">
+          <button class="btn-load">
+            Load More
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Collection Highlights -->
+    <section class="collection-highlights">
+      <div class="section-container">
+        <h2>Curated Collections</h2>
+        <div class="collection-grid">
+          <a href="#" class="collection-card summer-collection">
+            <div class="collection-content">
+              <h3>Summer '25</h3>
+              <p>Fresh seasonal drops</p>
+              <span class="btn-collection">Shop Now</span>
+            </div>
+          </a>
+          <a href="#" class="collection-card limited-edition">
+            <div class="collection-content">
+              <h3>Limited Edition</h3>
+              <p>Exclusive collaborations</p>
+              <span class="btn-collection">Shop Now</span>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
   </main>
-  
 
+  <!-- Newsletter Section -->
   <section class="newsletter">
     <div class="content-container">
-      <h2>Join the HYPE</h2>
-      <p>Subscribe to our newsletter and stay updated on new drops, exclusive deals, and fashion insights.</p>
+      <h2>Never Miss a Drop</h2>
+      <p>Subscribe for early access to new collections and exclusive offers</p>
       <form class="newsletter-form">
-        <input type="email" placeholder="Enter your email" required>
-        <button type="submit">Subscribe</button>
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit">Join the HYPE</button>
       </form>
     </div>
   </section>
-  
+
+  <!-- Footer remains exactly the same -->
   <footer class="site-footer" role="contentinfo">
     <div class="footer-container">
       <p>&copy; <span id="current-year">2025</span> HYPEthread | <a href="references.html">References</a></p>
@@ -102,41 +184,8 @@
       </ul>
     </div>
   </footer>
-  
-<!-- Back to Top button & JS at the very end of body -->
-<button id="backToTop" title="Go to top">&#8679;</button>
-<script>
-  const backToTopBtn = document.getElementById("backToTop");
 
-  window.onscroll = function () {
-    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-      backToTopBtn.style.display = "block";
-    } else {
-      backToTopBtn.style.display = "none";
-    }
-  };
-
-  backToTopBtn.addEventListener("click", function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-</script>
-
-<!-- 👇 Add this script below the Back to Top one -->
-<script>
-  const header = document.getElementById("siteHeader");
-  let lastScrollTop = 0;
-
-  window.addEventListener("scroll", function () {
-    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (currentScroll > lastScrollTop) {
-      header.style.transform = "translateY(-100%)";
-    } else {
-      header.style.transform = "translateY(0)";
-    }
-
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-  });
-</script>
+  <!-- Back to Top Button -->
+  <button id="backToTop" title="Go to top">&#8679;</button>
 </body>
 </html>
