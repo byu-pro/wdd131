@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
       category: "hoodies",
       image: "tech-hoodie.webp",
       description: "Slim fit zip-up with breathable tech fabric",
-      trending: false
+      trending: true
     },
     {
       id: 3,
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
       category: "hoodies",
       image: "oversized-hoodie.webp",
       description: "Cozy oversized pullover for maximum comfort",
-      trending: false
+      trending: true
     },
 
     // Tees
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
       category: "tees",
       image: "tee.webp",
       description: "100% cotton graphic t-shirt",
-      trending: false
+      trending: true
     },
     {
       id: 6,
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
       category: "tees",
       image: "minimalist-tee.webp",
       description: "Clean and simple logo tee",
-      trending: false
+      trending: true
     },
     {
       id: 8,
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
       category: "footwear",
       image: "lowtop-sneakers.webp",
       description: "Sleek and comfy low-top trainers",
-      trending: false
+      trending: true
     },
     {
       id: 11,
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
       category: "footwear",
       image: "skater-shoes.webp",
       description: "Flat-soled skate shoes with grip",
-      trending: false
+      trending: true
     },
     {
       id: 12,
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
       category: "bottoms",
       image: "track-pants.webp",
       description: "Athletic track pants with side stripes",
-      trending: false
+      trending: true
     },
     {
       id: 15,
@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
       category: "bottoms",
       image: "chino-joggers.webp",
       description: "Smart casual joggers with stretch",
-      trending: false
+      trending: true
     },
 
     // Accessories
@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
       category: "accessories",
       image: "hat.webp",
       description: "Structured dad hat with curved brim",
-      trending: false
+      trending: true
     },
     {
       id: 18,
@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
       category: "accessories",
       image: "bucket-hat.webp",
       description: "Casual bucket hat with logo patch",
-      trending: false
+      trending: true
     },
     {
       id: 19,
@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
       category: "accessories",
       image: "beanie.webp",
       description: "Stretch-knit beanie with HYPEthread patch",
-      trending: false
+      trending: true
     },
     {
       id: 20,
@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
       category: "outerwear",
       image: "denim-jacket.webp",
       description: "Washed denim jacket with distressed details",
-      trending: false
+      trending: true
     },
     {
       id: 23,
@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
       category: "outerwear",
       image: "puffer-vest.webp",
       description: "Sleeveless insulated vest for layering",
-      trending: false
+      trending: true
     },
     {
       id: 24,
