@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="HYPEthread - Streetwear fashion trends and culture.">
-  <title>HYPEthread | Home</title>
+  <meta name="description" content="Your HYPEthread shopping cart - Review and checkout your streetwear selections">
+  <title>Your Cart | HYPEthread Streetwear</title>
 
   <!-- Preload logos -->
   <link rel="preload" href="images/hypethreadlight.png" as="image" type="image/png">
@@ -17,7 +17,10 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- CSS -->
   <link rel="stylesheet" href="styles/hypethread.css">
@@ -28,9 +31,8 @@
 </head>
 <body>
   
-  
+  <!-- Header remains exactly the same -->
   <header class="site-header" id="siteHeader">
-
     <div class="header-container">
       <div class="nav-header">
         <button id="themeToggle" aria-label="Toggle light/dark mode" aria-pressed="false">
@@ -43,7 +45,6 @@
         </a>
       </div>
   
-      <!-- Move the menu toggle button here -->
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
         <span class="menu-icon" aria-hidden="true">&#9776;</span>
       </button>
@@ -54,48 +55,106 @@
           <li><a href="about.html">About</a></li>
           <li><a href="products.html">Products</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="cart.html" class="active" id="cartLink">Cart <span id="cartCounter"></span></a></li>
+          <li><a href="cart.html" class="active" id="cartLink" aria-current="page">Cart <span id="cartCounter"></span></a></li>
         </ul>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </header>
 
-  <main>
+  <main id="main-content">
+    <!-- Cart Hero Section -->
+    <section class="cart-hero">
+      <div class="hero-content">
+        <h1>Your Streetwear Selection</h1>
+        <p class="subtitle">Review your HYPEthread items before checkout</p>
+      </div>
+    </section>
+
+    <!-- Cart Main Section -->
     <section class="cart-container">
-      <h1>Your Cart</h1>
-      
       <div class="cart-layout">
-        <div class="cart-items" id="cartItems">
-          <!-- Cart items will load here dynamically -->
-          <div class="empty-cart">
-            <img src="images/empty-cart.svg" alt="Empty cart" class="empty-cart-icon">
-            <p>Your cart is empty</p>
-            <a href="products.html" class="btn-primary">Browse Products</a>
+        <!-- Cart Items Column -->
+        <div class="cart-items-column">
+          <div class="cart-header">
+            <h2>Your Cart (<span id="itemCount">0</span> items)</h2>
+            <a href="products.html" class="continue-shopping">
+              <i class="fas fa-arrow-left"></i> Continue Shopping
+            </a>
+          </div>
+          
+          <div class="cart-items" id="cartItems">
+            <!-- Empty State -->
+            <div class="empty-cart">
+              <img src="images/empty-cart.svg" alt="Empty shopping cart" class="empty-cart-icon">
+              <h3>Your cart is empty</h3>
+              <p>Looks like you haven't added any streetwear gems yet</p>
+              <a href="products.html" class="btn-primary">Explore Latest Drops</a>
+            </div>
+            
+            <!-- Cart items will be inserted here by JavaScript -->
           </div>
         </div>
         
-        <div class="cart-summary">
-          <h2>Order Summary</h2>
-          <div class="summary-details">
-            <div class="summary-row">
-              <span>Subtotal</span>
-              <span id="subtotal">$0.00</span>
+        <!-- Order Summary Column -->
+        <div class="summary-column">
+          <div class="cart-summary-card">
+            <h2>Order Summary</h2>
+            
+            <div class="summary-details">
+              <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="subtotal">$0.00</span>
+              </div>
+              <div class="summary-row">
+                <span>Shipping</span>
+                <span id="shipping">$5.99</span>
+              </div>
+              <div class="summary-row">
+                <span>Estimated Tax</span>
+                <span id="tax">$0.00</span>
+              </div>
+              <div class="summary-row total">
+                <span>Total</span>
+                <span id="total">$5.99</span>
+              </div>
             </div>
-            <div class="summary-row">
-              <span>Shipping</span>
-              <span id="shipping">$5.99</span>
+            
+            <button id="checkoutBtn" class="btn-checkout" disabled>
+              Proceed to Checkout <i class="fas fa-lock"></i>
+            </button>
+            
+            <div class="payment-methods">
+              <p>Secure Payment</p>
+              <div class="payment-icons">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-paypal"></i>
+                <i class="fab fa-cc-apple-pay"></i>
+              </div>
             </div>
-            <div class="summary-row total">
-              <span>Total</span>
-              <span id="total">$5.99</span>
+            
+            <div class="shipping-notice">
+              <i class="fas fa-truck"></i>
+              <p>Free shipping on orders over $100</p>
             </div>
           </div>
-          <button id="checkoutBtn" class="btn-checkout" disabled>Proceed to Checkout</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recommended Products -->
+    <section class="recommended-products">
+      <div class="section-container">
+        <h2>You Might Also Like</h2>
+        <div class="recommended-grid" id="recommendedProducts">
+          <!-- Recommended products will be loaded here by JavaScript -->
         </div>
       </div>
     </section>
   </main>
 
+  <!-- Footer remains exactly the same -->
   <footer class="site-footer" role="contentinfo">
     <div class="footer-container">
       <p>&copy; <span id="current-year">2025</span> HYPEthread | <a href="references.html">References</a></p>
@@ -106,5 +165,8 @@
       </ul>
     </div>
   </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" title="Go to top">&#8679;</button>
 </body>
 </html>
