@@ -1960,32 +1960,43 @@ textarea {
   }
 }
 
-@media (min-width: 768px) {
-  .header-container {
-    flex-direction: column;
-    align-items: center;
-  }
+/* Mobile styles (default): collapsed nav with toggle */
+.menu-toggle {
+  display: block;
+  position: static;
+  margin: 1rem 0;
+}
 
+.nav-links {
+  display: none;
+  flex-direction: column;
+  background-color: var(--bg-darker);
+  width: 100%;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.nav-links.show {
+  display: flex;
+  margin-top: 1rem;
+}
+
+/* Desktop styles: always visible horizontal nav */
+@media (min-width: 768px) {
   .menu-toggle {
-    display: block;
-    position: static;
-    margin: 1rem 0;
+    display: none;
   }
 
   .nav-links {
-    display: none;
-    flex-direction: column;
-    background-color: var(--bg-darker);
-    width: 100%;
-    padding: 1rem 0;
-    position: static;
-    text-align: center;
+    display: flex !important;
+    flex-direction: row;
+    background-color: transparent;
+    justify-content: center;
+    padding: 0;
+    margin-top: 0;
   }
+}
 
-  .nav-links.show {
-    display: flex;
-    margin-top: 1rem;
-  }
 
   .hero-container {
     border-radius: 0.75rem;
