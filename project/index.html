@@ -24,11 +24,13 @@
 
   <!-- JavaScript -->
   <script defer src="scripts/main.js"></script>
+
 </head>
 <body>
   
   
-  <header class="site-header">
+  <header class="site-header" id="siteHeader">
+
     <div class="header-container">
       <div class="nav-header">
         <button id="themeToggle" aria-label="Toggle light/dark mode" aria-pressed="false">
@@ -124,6 +126,64 @@
     </section>
   </main>
 
+  <section class="brand-story">
+    <div class="content-container">
+      <h2>Our Story</h2>
+      <p>
+        Born in the heart of street culture, HYPEthread is more than just clothing — it's a lifestyle. 
+        What started as a passion project by creators in the city evolved into a movement. 
+        We believe in bold expression, fearless identity, and high-quality threads made to last. 
+        Join the hype, wear the culture.
+      </p>
+    </div>
+  </section>
+  
+  <section class="testimonials">
+    <div class="content-container">
+      <h2>What Our Clients Say</h2>
+      <div class="client-gallery">
+  
+        <div class="client-card">
+          <img src="images/client1.jpg" alt="Client wearing HYPEthread">
+          <div class="testimonial-overlay">
+            <p>“Absolutely love the hoodie! Super cozy and the colors pop.”</p>
+            <strong>- @aminastyle</strong>
+          </div>
+        </div>
+  
+        <div class="client-card">
+          <img src="images/client2.jpg" alt="Client wearing HYPEthread">
+          <div class="testimonial-overlay">
+            <p>“Top-tier quality. This drop was 🔥 — can’t wait for the next one.”</p>
+            <strong>- @jturbanwear</strong>
+          </div>
+        </div>
+  
+        <div class="client-card">
+          <img src="images/client3.jpg" alt="Client wearing HYPEthread">
+          <div class="testimonial-overlay">
+            <p>“I get compliments every time I wear this jacket. So worth it!”</p>
+            <strong>- @rileystreetstyle</strong>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  
+  
+  <section class="newsletter">
+    <div class="content-container">
+      <h2>Join the HYPE</h2>
+      <p>Subscribe to our newsletter and stay updated on new drops, exclusive deals, and fashion insights.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+  
   <footer class="site-footer" role="contentinfo">
     <div class="footer-container">
       <p>&copy; <span id="current-year">2025</span> HYPEthread | <a href="references.html">References</a></p>
@@ -134,5 +194,41 @@
       </ul>
     </div>
   </footer>
+  
+<!-- Back to Top button & JS at the very end of body -->
+<button id="backToTop" title="Go to top">&#8679;</button>
+<script>
+  const backToTopBtn = document.getElementById("backToTop");
+
+  window.onscroll = function () {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      backToTopBtn.style.display = "block";
+    } else {
+      backToTopBtn.style.display = "none";
+    }
+  };
+
+  backToTopBtn.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+<!-- 👇 Add this script below the Back to Top one -->
+<script>
+  const header = document.getElementById("siteHeader");
+  let lastScrollTop = 0;
+
+  window.addEventListener("scroll", function () {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+      header.style.transform = "translateY(-100%)";
+    } else {
+      header.style.transform = "translateY(0)";
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  });
+</script>
 </body>
 </html>
