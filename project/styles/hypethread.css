@@ -19,7 +19,43 @@
     margin: 0;
     padding: 0;
   }
+  /* Hero styles */
+.hero-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  display: block;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.hero-content {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .hero-image img {
+    height: 600px;
+  }
   
+  .hero-content {
+    padding: 3rem 2rem;
+  }
+}
   body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg-dark);

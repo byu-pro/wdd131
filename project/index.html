@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="HYPEthread - Streetwear fashion trends and culture." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HYPEthread - Streetwear fashion trends and culture.">
   <title>HYPEthread | Home</title>
 
   <!-- Preload logos -->
   <link rel="preload" href="images/hypethreadlight.png" as="image" type="image/png">
-  <link rel="preload" href="images/hypethreaddark.png" as="image">
+  <link rel="preload" href="images/hypethreaddark.png" as="image" type="image/png">
 
   <!-- Favicons -->
   <link rel="icon" href="images/hypethreadlight.png" media="(prefers-color-scheme: light)">
   <link rel="icon" href="images/hypethreaddark.png" media="(prefers-color-scheme: dark)">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="styles/hypethread.css" />
+  <link rel="stylesheet" href="styles/hypethread.css">
 
   <!-- JavaScript -->
   <script defer src="scripts/main.js"></script>
@@ -26,45 +28,70 @@
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
   
-  <header>
-    <button id="themeToggle" aria-label="Toggle light/dark mode">☀️</button>
-    <img src="images/hypethreaddark.png" alt="HYPEthread Logo" class="logo" id="siteLogo" width="150" height="50" />
-    <nav>
-      <div class="nav-container">
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
-          &#9776;
-        </button>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="index.html" class="active" aria-current="page">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="cart.html">Cart</a></li>
-        </ul>
-      </div>
-    </nav>
+  <header class="site-header">
+    <div class="header-container">
+      <button id="themeToggle" aria-label="Toggle light/dark mode" aria-pressed="false">
+        <span class="theme-icon" aria-hidden="true">☀️</span>
+        <span class="visually-hidden">Toggle dark mode</span>
+      </button>
+      <a href="index.html" class="logo-link">
+        <img src="images/hypethreaddark.png" alt="HYPEthread Logo" class="logo" id="siteLogo" width="150" height="50" loading="lazy">
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <div class="nav-container">
+          <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+            <span class="menu-icon" aria-hidden="true">&#9776;</span>
+            <span class="visually-hidden">Menu</span>
+          </button>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="cart.html">Cart <span class="cart-count" aria-hidden="true">(0)</span></a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
   </header>
 
   <main id="main-content">
-    <section class="hero">
-      <h1>Welcome to HYPEthread</h1>
-      <p>Where streetwear meets culture. Discover the latest hype.</p>
-      <picture>
+    <div class="hero-container">
+      <picture class="hero-image">
         <source srcset="images/hero.webp" type="image/webp">
-        <img src="images/hero.webp" alt="Models wearing latest streetwear fashion" loading="lazy" width="1200" height="600" />
+        <source srcset="images/hero.jpg" type="image/jpeg">
+        <img src="images/hero.jpg" alt="Models wearing latest streetwear fashion" width="1920" height="800" loading="eager">
       </picture>
+    </div>
+
+    <section class="hero-content" aria-labelledby="hero-heading">
+      <div class="content-container">
+        <h1 id="hero-heading">Welcome to HYPEthread</h1>
+        <p class="hero-text">Where streetwear meets culture. Discover the latest hype.</p>
+        <a href="products.html" class="cta-button">Shop Now</a>
+      </div>
     </section>
 
-    <section class="featured">
-      <h2>🔥 Trending Now</h2>
-      <div class="item-grid" id="productGrid">
-        <!-- Products will be dynamically inserted by JavaScript -->
+    <section class="featured" aria-labelledby="featured-heading">
+      <div class="section-container">
+        <h2 id="featured-heading"><span aria-hidden="true">🔥</span> Trending Now</h2>
+        <div class="item-grid" id="productGrid" role="list">
+          <!-- Products will be dynamically inserted by JavaScript -->
+          <p class="loading-message">Loading products...</p>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 HYPEthread | <a href="references.html">References</a></p>
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      <p>&copy; <span id="current-year">2025</span> HYPEthread | <a href="references.html">References</a></p>
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+      </ul>
+    </div>
   </footer>
 </body>
 </html>
