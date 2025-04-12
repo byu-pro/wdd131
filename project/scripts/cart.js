@@ -126,3 +126,58 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initialize
     renderCart();
   });
+  document.addEventListener("DOMContentLoaded", () => {
+    // Cart counter element
+    const cartCounter = document.querySelector('.cart-count');
+    
+    // Add to cart functionality
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', function() {
+        const productId = parseInt(this.dataset.id);
+        addToCart(productId);
+      });
+    });
+  
+    function addToCart(productId) {
+      // This would be replaced with your actual product data
+      const product = {
+        id: productId,
+        name: document.querySelector(`.add-to-cart[data-id="${productId}"]`).closest('.product-info').querySelector('h3').textContent,
+        price: parseFloat(document.querySelector(`.add-to-cart[data-id="${productId}"]`).closest('.product-info').querySelector('.price').textContent.replace('$', '')),
+        image: document.querySelector(`.add-to-cart[data-id="${productId}"]`).closest('.product-card').querySelector('img').src.split('/').pop()
+      };
+      
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const existingItem = cart.find(item => item.id === productId);
+      
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({
+          ...product,
+          quantity: 1
+        });
+      }
+      
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartCounter();
+      
+      // Visual feedback
+      const button = document.querySelector(`.add-to-cart[data-id="${productId}"]`);
+      button.textContent = 'Added!';
+      setTimeout(() => {
+        button.textContent = 'Add to Cart';
+      }, 1500);
+    }
+  
+    function updateCartCounter() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      if (cartCounter) {
+        cartCounter.textContent = totalItems > 0 ? `(${totalItems})` : '';
+      }
+    }
+  
+    // Initialize cart counter
+    updateCartCounter();
+  });

@@ -11,8 +11,8 @@
   <link rel="preload" href="images/hypethread_dark.webp" as="image" type="image/webp">
 
   <!-- Favicons -->
-  <link rel="icon" href="images/hypethread_light.webp" media="(prefers-color-scheme: light)">
-  <link rel="icon" href="images/hypethread_dark.webp" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="images/hypethread_dark.webp" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="images/hypethread_light.webp" media="(prefers-color-scheme: dark)">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -115,14 +115,77 @@
     </section>
   
     <!-- Featured Products Section -->
-    <section class="featured" aria-labelledby="featured-heading">
-      <div class="section-container">
-        <h2 id="featured-heading"><span aria-hidden="true">🔥</span> Trending Now</h2>
-        <div class="item-grid" id="productGrid" role="list">
-          <!-- Products will be loaded dynamically from products.js -->
+<section class="featured" aria-labelledby="featured-heading">
+  <div class="section-container">
+    <h2 id="featured-heading"><span aria-hidden="true">🔥</span> Trending Now</h2>
+    <div class="item-grid" role="list">
+      <!-- Product 1 -->
+      <div class="product-card">
+        <div class="product-image-container">
+          <img src="images/products/oversized-hoodie.webp" 
+               alt="OG Logo Hoodie" 
+               loading="lazy"
+               width="400"
+               height="500">
+          
+        </div>
+        <div class="product-info">
+          <h3>OG Logo Hoodie</h3>
+          <p class="price">$59.99</p>
+          <div class="product-actions">
+            
+            <a href="products.html" class="view-details">View Details</a>
+          </div>
         </div>
       </div>
-    </section>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="product-image-container">
+          <img src="images/products/sneakers.webp" 
+               alt="High-Top Sneakers" 
+               loading="lazy"
+               width="400"
+               height="500">
+          
+        </div>
+        <div class="product-info">
+          <h3>High-Top Sneakers</h3>
+          <p class="price">$129.99</p>
+          <div class="product-actions">
+            
+            <a href="products.html" class="view-details">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="product-image-container">
+          <img src="images/products/pants.webp" 
+               alt="Utility Cargo Pants" 
+               loading="lazy"
+               width="400"
+               height="500">
+          
+        </div>
+        <div class="product-info">
+          <h3>Utility Cargo Pants</h3>
+          <p class="price">$49.99</p>
+          <div class="product-actions">
+            
+            <a href="products.html" class="view-details">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- View All Button -->
+    <div class="view-all-container">
+      <a href="products.html" class="cta-button">View All Items</a>
+    </div>
+  </div>
+</section>
   </main>
 
   <section class="brand-story">
