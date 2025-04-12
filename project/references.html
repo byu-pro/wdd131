@@ -2,15 +2,73 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HYPEthread | References</title>
+  
+  <!-- Favicons -->
+  <link rel="icon" href="images/hypethreadlight.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="images/hypethreaddark.png" media="(prefers-color-scheme: dark)">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/styles/hypethread.css" />
 </head>
 <body>
-  <h1>References & Credits</h1>
-  <ul>
-    <li>Images from <a href="https://unsplash.com" target="_blank">Unsplash</a> and <a href="https://pexels.com" target="_blank">Pexels</a></li>
-    <li>Fonts by <a href="https://fonts.google.com/" target="_blank">Google Fonts</a> (Montserrat & Poppins)</li>
-    <li>Color palette from <a href="https://coolors.co/" target="_blank">Coolors</a></li>
-    <li>Icons and branding inspired by modern streetwear aesthetics</li>
-  </ul>
+  <header>
+    <button id="themeToggle" aria-label="Toggle light/dark mode">☀️</button>
+    <img src="images/logo.png" alt="HYPEthread Logo" class="logo" />
+    <nav>
+      <div class="nav-container">
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+          &#9776;
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="references">
+      <h1>Attributions</h1>
+      <h2>Image Credits</h2>
+      <ul>
+        <li>Hero image: Photo by StreetView Photography, CC BY 2.0</li>
+        <li>Product photos: HYPEthread original content</li>
+        <li>Team photos: Generated with consent using AI tool</li>
+      </ul>
+      
+      <h2>Icon Credits</h2>
+      <ul>
+        <li>Social media icons: Feather Icons, MIT License</li>
+      </ul>
+      
+      <h2>Font Credits</h2>
+      <ul>
+        <li>Montserrat: Designed by Julieta Ulanovsky, SIL Open Font License</li>
+        <li>Poppins: Designed by Indian Type Foundry, SIL Open Font License</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 HYPEthread</p>
+  </footer>
+
+  <!-- Minimal JavaScript for theme only -->
+  <script>
+    document.getElementById('themeToggle')?.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+    });
+    
+    // Load saved theme
+    if (localStorage.getItem('theme') === 'light') {
+      document.body.classList.add('light-mode');
+    }
+  </script>
 </body>
 </html>

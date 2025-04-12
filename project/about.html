@@ -3,46 +3,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Learn about the story and mission behind HYPEthread." />
+  <meta name="description" content="Learn about HYPEthread's mission and streetwear culture." />
   <title>HYPEthread | About</title>
+  
+  <!-- Favicons -->
+  <link rel="icon" href="images/hypethreadlight.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="images/hypethreaddark.png" media="(prefers-color-scheme: dark)">
 
-  <!-- Light/Dark Favicons -->
-<link rel="icon" href="images/hypethreadlight.png" media="(prefers-color-scheme: light)">
-<link rel="icon" href="images/hypethreaddark.png" media="(prefers-color-scheme: dark)">
-
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
   <link rel="stylesheet" href="styles/styles/hypethread.css" />
+
+  <!-- JavaScript -->
   <script defer src="scripts/main.js"></script>
 </head>
 <body>
   <header>
+    <button id="themeToggle" aria-label="Toggle light/dark mode">☀️</button>
     <img src="images/logo.png" alt="HYPEthread Logo" class="logo" />
     <nav>
-        <div class="nav-container">
-          <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
-            &#9776;
-          </button>
-          <ul class="nav-links" id="navLinks">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-      
+      <div class="nav-container">
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+          &#9776;
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
 
   <main>
     <section class="content">
-      <h1>About HYPEthread</h1>
-      <p>HYPEthread was born from the passion for streetwear, self-expression, and culture. We exist to highlight global street fashion trends and celebrate the creators and communities that shape them.</p>
-      <p>From bold hoodies to statement sneakers, every piece reflects the hype-driven energy of the streets. Our mission is to inspire through fashion while embracing diversity, creativity, and authenticity.</p>
+      <h1>Our Story</h1>
+      <img src="images/about-hero.jpg" alt="Streetwear culture" loading="lazy" class="content-hero">
+      <p>Founded in 2023, HYPEthread emerged from a passion for streetwear culture and the desire to create clothing that speaks to individuality.</p>
+      
+      <h2>The Movement</h2>
+      <p>We're more than just a brand - we're a community. Our designs reflect the energy of urban culture, blending fashion with self-expression.</p>
+      
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="images/team/designer.jpg" alt="Lead Designer">
+          <h3>Alex Rivera</h3>
+          <p>Lead Designer</p>
+        </div>
+        <div class="team-card">
+          <img src="images/team/ceo.jpg" alt="Founder & CEO">
+          <h3>Jordan Chen</h3>
+          <p>Founder & CEO</p>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 HYPEthread | John Obiko | <a href="references.html">References</a></p>
+    <p>&copy; 2025 HYPEthread | <a href="references.html">References</a></p>
   </footer>
 </body>
 </html>
