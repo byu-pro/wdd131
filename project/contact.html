@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="HYPEthread - Streetwear fashion trends and culture.">
-  <title>HYPEthread | Home</title>
+  <meta name="description" content="Contact HYPEthread - Get in touch with our streetwear team for inquiries, collaborations, and support.">
+  <title>Contact Us | HYPEthread Streetwear</title>
 
   <!-- Preload logos -->
   <link rel="preload" href="images/hypethreadlight.png" as="image" type="image/png">
@@ -17,7 +17,10 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- CSS -->
   <link rel="stylesheet" href="styles/hypethread.css">
@@ -27,9 +30,8 @@
 </head>
 <body>
   
-  
+  <!-- Header remains exactly the same -->
   <header class="site-header" id="siteHeader">
-
     <div class="header-container">
       <div class="nav-header">
         <button id="themeToggle" aria-label="Toggle light/dark mode" aria-pressed="false">
@@ -42,7 +44,6 @@
         </a>
       </div>
   
-      <!-- Move the menu toggle button here -->
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
         <span class="menu-icon" aria-hidden="true">&#9776;</span>
       </button>
@@ -52,61 +53,136 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="products.html">Products</a></li>
-          <li><a href="contact.html" class="active">Contact</a></li>
+          <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
           <li><a href="cart.html">Cart</a></li>
         </ul>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section class="contact">
-      <h1>Get In Touch</h1>
+  <main id="main-content">
+    <!-- Contact Hero Section -->
+    <section class="contact-hero">
+      <div class="hero-content">
+        <h1>Connect With Us</h1>
+        <p class="subtitle">We're here to answer your questions and collaborate</p>
+      </div>
+    </section>
+
+    <!-- Contact Main Section -->
+    <section class="contact-section">
       <div class="contact-container">
-        <form id="contactForm">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="subject">Subject</label>
-            <select id="subject" name="subject">
-              <option value="general">General Inquiry</option>
-              <option value="order">Order Support</option>
-              <option value="collab">Collaboration</option>
-            </select>
-          </div>
-          
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-          </div>
-          
-          <button type="submit">Send Message</button>
-        </form>
+        <!-- Contact Form -->
+        <div class="contact-form-container">
+          <h2>Send Us a Message</h2>
+          <form id="contactForm" class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your full name">
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="your@email.com">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject" name="subject" class="styled-select">
+                <option value="" disabled selected>Select a topic</option>
+                <option value="general">General Inquiry</option>
+                <option value="order">Order Support</option>
+                <option value="collab">Collaboration</option>
+                <option value="wholesale">Wholesale Inquiry</option>
+                <option value="press">Press & Media</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" rows="6" required placeholder="How can we help you?"></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">
+              <span>Send Message</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
         
-        <div class="contact-info">
-          <h2>Other Ways to Connect</h2>
-          <p><strong>Email:</strong> info@hypethread.com</p>
-          <p><strong>Phone:</strong> (555) 123-4567</p>
-          <p><strong>HQ:</strong> 123 Streetwear Ave, Urban City</p>
-          
-          <div class="social-links">
-            <a href="#" aria-label="Instagram"><img src="images/social/instagram.svg" alt="Instagram"></a>
-            <a href="#" aria-label="Twitter"><img src="images/social/twitter.svg" alt="Twitter"></a>
-            <a href="#" aria-label="TikTok"><img src="images/social/tiktok.svg" alt="TikTok"></a>
+        <!-- Contact Info -->
+        <div class="contact-info-container">
+          <div class="contact-info-card">
+            <h2>Other Ways to Reach Us</h2>
+            
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="info-content">
+                <h3>Email</h3>
+                <a href="mailto:info@hypethread.com">info@hypethread.com</a>
+              </div>
+            </div>
+            
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="info-content">
+                <h3>Phone</h3>
+                <a href="tel:+15551234567">(555) 123-4567</a>
+              </div>
+            </div>
+            
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="info-content">
+                <h3>Headquarters</h3>
+                <address>
+                  123 Streetwear Ave<br>
+                  Urban City, UC 10001<br>
+                  Open Mon-Fri: 9AM-6PM
+                </address>
+              </div>
+            </div>
+            
+            <div class="social-links">
+              <h3>Follow Us</h3>
+              <div class="social-icons">
+                <a href="#" aria-label="Instagram" class="social-icon">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" aria-label="Twitter" class="social-icon">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" aria-label="TikTok" class="social-icon">
+                  <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="#" aria-label="Discord" class="social-icon">
+                  <i class="fab fa-discord"></i>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215256377629!2d-73.98784468459382!3d40.74844047932798!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ0JzU0LjQiTiA3M8KwNTknMTAuNyJX!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" 
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </section>
   </main>
 
+  <!-- Footer remains exactly the same -->
   <footer class="site-footer" role="contentinfo">
     <div class="footer-container">
       <p>&copy; <span id="current-year">2025</span> HYPEthread | <a href="references.html">References</a></p>
@@ -117,5 +193,40 @@
       </ul>
     </div>
   </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" title="Go to top">&#8679;</button>
+
+  <!-- JavaScript remains the same -->
+  <script>
+    const backToTopBtn = document.getElementById("backToTop");
+
+    window.onscroll = function () {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        backToTopBtn.style.display = "block";
+      } else {
+        backToTopBtn.style.display = "none";
+      }
+    };
+
+    backToTopBtn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    const header = document.getElementById("siteHeader");
+    let lastScrollTop = 0;
+
+    window.addEventListener("scroll", function () {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (currentScroll > lastScrollTop) {
+        header.style.transform = "translateY(-100%)";
+      } else {
+        header.style.transform = "translateY(0)";
+      }
+
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+  </script>
 </body>
 </html>
