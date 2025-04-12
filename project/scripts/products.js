@@ -1,61 +1,234 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Product data array
-    const products = [
-      {
-        id: 1,
-        name: "OG Logo Hoodie",
-        price: 59.99,
-        category: "hoodies",
-        image: "hoodie.jpg",
-        description: "Our signature hoodie with embroidered logo",
-        trending: true
-      },
-      {
-        id: 2,
-        name: "High-Top Sneakers",
-        price: 129.99,
-        category: "footwear",
-        image: "sneakers.jpg",
-        description: "Limited edition high-top sneakers",
-        trending: true
-      },
-      {
-        id: 3,
-        name: "Graphic Tee",
-        price: 29.99,
-        category: "tees",
-        image: "tee.jpg",
-        description: "100% cotton graphic t-shirt",
-        trending: false
-      },
-      {
-        id: 4,
-        name: "Cargo Pants",
-        price: 49.99,
-        category: "bottoms",
-        image: "pants.jpg",
-        description: "Utility cargo pants with multiple pockets",
-        trending: true
-      },
-      {
-        id: 5,
-        name: "Dad Hat",
-        price: 24.99,
-        category: "accessories",
-        image: "hat.jpg",
-        description: "Structured dad hat with curved brim",
-        trending: false
-      },
-      {
-        id: 6,
-        name: "Coach Jacket",
-        price: 79.99,
-        category: "outerwear",
-        image: "jacket.jpg",
-        description: "Lightweight coach jacket with water resistance",
-        trending: true
-      }
-    ];
+  const products = [
+    // Hoodies
+    {
+      id: 1,
+      name: "OG Logo Hoodie",
+      price: 59.99,
+      category: "hoodies",
+      image: "hoodie.webp",
+      description: "Our signature hoodie with embroidered logo",
+      trending: true
+    },
+    {
+      id: 2,
+      name: "Tech Zip Hoodie",
+      price: 64.99,
+      category: "hoodies",
+      image: "tech-hoodie.webp",
+      description: "Slim fit zip-up with breathable tech fabric",
+      trending: false
+    },
+    {
+      id: 3,
+      name: "Tie-Dye Hoodie",
+      price: 54.99,
+      category: "hoodies",
+      image: "tie-dye-hoodie.webp",
+      description: "Trippy colors with a retro HYPEthread logo",
+      trending: true
+    },
+    {
+      id: 4,
+      name: "Oversized Hoodie",
+      price: 62.99,
+      category: "hoodies",
+      image: "oversized-hoodie.webp",
+      description: "Cozy oversized pullover for maximum comfort",
+      trending: false
+    },
+
+    // Tees
+    {
+      id: 5,
+      name: "Graphic Tee",
+      price: 29.99,
+      category: "tees",
+      image: "tee.webp",
+      description: "100% cotton graphic t-shirt",
+      trending: false
+    },
+    {
+      id: 6,
+      name: "Oversized Tee",
+      price: 34.99,
+      category: "tees",
+      image: "oversized-tee.webp",
+      description: "Relaxed-fit oversized t-shirt with front print",
+      trending: true
+    },
+    {
+      id: 7,
+      name: "Minimalist Tee",
+      price: 27.99,
+      category: "tees",
+      image: "minimalist-tee.webp",
+      description: "Clean and simple logo tee",
+      trending: false
+    },
+    {
+      id: 8,
+      name: "HYPE Core Tee",
+      price: 32.99,
+      category: "tees",
+      image: "core-tee.webp",
+      description: "Core line tee with signature embroidery",
+      trending: true
+    },
+
+    // Footwear
+    {
+      id: 9,
+      name: "High-Top Sneakers",
+      price: 129.99,
+      category: "footwear",
+      image: "sneakers.webp",
+      description: "Limited edition high-top sneakers",
+      trending: true
+    },
+    {
+      id: 10,
+      name: "Low-Top Kicks",
+      price: 109.99,
+      category: "footwear",
+      image: "lowtop-sneakers.webp",
+      description: "Sleek and comfy low-top trainers",
+      trending: false
+    },
+    {
+      id: 11,
+      name: "Street Skater Shoes",
+      price: 89.99,
+      category: "footwear",
+      image: "skater-shoes.webp",
+      description: "Flat-soled skate shoes with grip",
+      trending: false
+    },
+    {
+      id: 12,
+      name: "Chunky Sneakers",
+      price: 139.99,
+      category: "footwear",
+      image: "chunky-sneakers.webp",
+      description: "Thick-soled trend-forward sneakers",
+      trending: true
+    },
+
+    // Bottoms
+    {
+      id: 13,
+      name: "Cargo Pants",
+      price: 49.99,
+      category: "bottoms",
+      image: "pants.webp",
+      description: "Utility cargo pants with multiple pockets",
+      trending: true
+    },
+    {
+      id: 14,
+      name: "Track Pants",
+      price: 44.99,
+      category: "bottoms",
+      image: "track-pants.webp",
+      description: "Athletic track pants with side stripes",
+      trending: false
+    },
+    {
+      id: 15,
+      name: "Distressed Jeans",
+      price: 69.99,
+      category: "bottoms",
+      image: "distressed-jeans.webp",
+      description: "Faded jeans with knee rips",
+      trending: true
+    },
+    {
+      id: 16,
+      name: "Chino Joggers",
+      price: 39.99,
+      category: "bottoms",
+      image: "chino-joggers.webp",
+      description: "Smart casual joggers with stretch",
+      trending: false
+    },
+
+    // Accessories
+    {
+      id: 17,
+      name: "Dad Hat",
+      price: 24.99,
+      category: "accessories",
+      image: "hat.webp",
+      description: "Structured dad hat with curved brim",
+      trending: false
+    },
+    {
+      id: 18,
+      name: "Bucket Hat",
+      price: 22.99,
+      category: "accessories",
+      image: "bucket-hat.webp",
+      description: "Casual bucket hat with logo patch",
+      trending: false
+    },
+    {
+      id: 19,
+      name: "Logo Beanie",
+      price: 19.99,
+      category: "accessories",
+      image: "beanie.webp",
+      description: "Stretch-knit beanie with HYPEthread patch",
+      trending: false
+    },
+    {
+      id: 20,
+      name: "Crossbody Bag",
+      price: 34.99,
+      category: "accessories",
+      image: "crossbody-bag.webp",
+      description: "Compact streetwear-style sling bag",
+      trending: true
+    },
+
+    // Outerwear
+    {
+      id: 21,
+      name: "Coach Jacket",
+      price: 79.99,
+      category: "outerwear",
+      image: "jacket.webp",
+      description: "Lightweight coach jacket with water resistance",
+      trending: true
+    },
+    {
+      id: 22,
+      name: "Denim Jacket",
+      price: 89.99,
+      category: "outerwear",
+      image: "denim-jacket.webp",
+      description: "Washed denim jacket with distressed details",
+      trending: false
+    },
+    {
+      id: 23,
+      name: "Puffer Vest",
+      price: 59.99,
+      category: "outerwear",
+      image: "puffer-vest.webp",
+      description: "Sleeveless insulated vest for layering",
+      trending: false
+    },
+    {
+      id: 24,
+      name: "Windbreaker",
+      price: 69.99,
+      category: "outerwear",
+      image: "windbreaker.webp",
+      description: "Light windbreaker with contrast zips",
+      trending: true
+    }
+  ];
+
   
     // DOM elements
     const productGrid = document.getElementById('fullProductGrid');
