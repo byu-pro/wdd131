@@ -278,3 +278,18 @@ function formatPrice(amount) {
 
     // Initialize carousel
     initCarousel();
+// In main.js (newsletter form)
+const newsletterForm = document.querySelector('.newsletter-form');
+if (newsletterForm) {
+  newsletterForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const emailInput = newsletterForm.querySelector('input');
+    if (!emailInput.value.includes('@')) {
+      emailInput.classList.add('error');
+      emailInput.setAttribute('aria-invalid', 'true');
+      return;
+    }
+    alert('Subscribed!');
+    newsletterForm.reset();
+  });
+}

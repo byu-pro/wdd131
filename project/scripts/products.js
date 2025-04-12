@@ -320,4 +320,11 @@ document.addEventListener("DOMContentLoaded", () => {
     renderProducts();
     updateCartCounter();
   });
-  
+  document.getElementById('sortBy').addEventListener('change', (e) => {
+    const sortedProducts = [...products].sort((a, b) => {
+      if (e.target.value === 'price-low') return a.price - b.price;
+      if (e.target.value === 'price-high') return b.price - a.price;
+      return 0;
+    });
+    renderProducts(sortedProducts);
+  });
