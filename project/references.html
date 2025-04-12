@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="HYPEthread - Streetwear fashion trends and culture.">
-  <title>HYPEthread | Home</title>
+  <meta name="description" content="HYPEthread - Attributions and credits for resources used on our site.">
+  <title>HYPEthread | References</title>
 
   <!-- Preload logos -->
   <link rel="preload" href="images/hypethreadlight.png" as="image" type="image/png">
@@ -24,12 +24,86 @@
 
   <!-- JavaScript -->
   <script defer src="scripts/main.js"></script>
+  
+  <style>
+    /* Additional styles specific to references page */
+    .references {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .references h1 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: var(--accent-color);
+    }
+    
+    .references h2 {
+      font-size: 1.8rem;
+      margin: 2rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent-color);
+    }
+    
+    .credits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .credit-card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .credit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .credit-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent-color);
+    }
+    
+    .credit-card p {
+      margin: 0.5rem 0;
+      color: var(--text-secondary);
+    }
+    
+    .license-badge {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      background: var(--accent-color);
+      color: white;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+    }
+    
+    .thank-you {
+      text-align: center;
+      margin: 3rem 0;
+      padding: 2rem;
+      background: var(--card-bg);
+      border-radius: 8px;
+    }
+    
+    .thank-you h2 {
+      border: none;
+    }
+  </style>
 </head>
 <body>
   
-  
   <header class="site-header" id="siteHeader">
-
     <div class="header-container">
       <div class="nav-header">
         <button id="themeToggle" aria-label="Toggle light/dark mode" aria-pressed="false">
@@ -42,7 +116,6 @@
         </a>
       </div>
   
-      <!-- Move the menu toggle button here -->
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
         <span class="menu-icon" aria-hidden="true">&#9776;</span>
       </button>
@@ -55,30 +128,72 @@
           <li><a href="contact.html">Contact</a></li>
           <li><a href="cart.html">Cart</a></li>
         </ul>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </header>
 
   <main>
     <section class="references">
-      <h1>Attributions</h1>
+      <h1>Attributions & Credits</h1>
+      
+      <div class="thank-you">
+        <h2>Gratitude for Amazing Creators</h2>
+        <p>At HYPEthread, we believe in giving credit where credit is due. We're proud to acknowledge the talented creators and open-source projects that help make our site possible.</p>
+      </div>
+      
       <h2>Image Credits</h2>
-      <ul>
-        <li>Hero image: Photo by StreetView Photography, CC BY 2.0</li>
-        <li>Product photos: HYPEthread original content</li>
-        <li>Team photos: Generated with consent using AI tool</li>
-      </ul>
+      <div class="credits-grid">
+        <div class="credit-card">
+          <h3>StreetView Photography</h3>
+          <p>Hero image used on our homepage</p>
+          <p><strong>License:</strong> Creative Commons Attribution 2.0</p>
+          <span class="license-badge">CC BY 2.0</span>
+        </div>
+        
+        <div class="credit-card">
+          <h3>HYPEthread Originals</h3>
+          <p>All product photography showcasing our streetwear collection</p>
+          <p><strong>License:</strong> Proprietary</p>
+        </div>
+        
+        <div class="credit-card">
+          <h3>AI-Generated Team Photos</h3>
+          <p>Created with consent using cutting-edge AI tools</p>
+          <p><strong>License:</strong> Commercial Use</p>
+        </div>
+      </div>
       
       <h2>Icon Credits</h2>
-      <ul>
-        <li>Social media icons: Feather Icons, MIT License</li>
-      </ul>
+      <div class="credits-grid">
+        <div class="credit-card">
+          <h3>Feather Icons</h3>
+          <p>Beautifully simple open-source icons</p>
+          <p><strong>License:</strong> MIT License</p>
+          <span class="license-badge">MIT</span>
+        </div>
+      </div>
       
       <h2>Font Credits</h2>
-      <ul>
-        <li>Montserrat: Designed by Julieta Ulanovsky, SIL Open Font License</li>
-        <li>Poppins: Designed by Indian Type Foundry, SIL Open Font License</li>
-      </ul>
+      <div class="credits-grid">
+        <div class="credit-card">
+          <h3>Montserrat</h3>
+          <p>Designed by Julieta Ulanovsky</p>
+          <p><strong>License:</strong> SIL Open Font License</p>
+          <span class="license-badge">OFL</span>
+        </div>
+        
+        <div class="credit-card">
+          <h3>Poppins</h3>
+          <p>Designed by Indian Type Foundry</p>
+          <p><strong>License:</strong> SIL Open Font License</p>
+          <span class="license-badge">OFL</span>
+        </div>
+      </div>
+      
+      <div class="thank-you">
+        <h2>Open Source Appreciation</h2>
+        <p>We're proud to support and utilize open-source projects. If you're a creator and would like to be featured more prominently, please don't hesitate to <a href="contact.html">contact us</a>.</p>
+      </div>
     </section>
   </main>
 
@@ -92,8 +207,6 @@
       </ul>
     </div>
   </footer>
-</body>
-</html>
 
   <!-- Minimal JavaScript for theme only -->
   <script>
@@ -106,6 +219,9 @@
     if (localStorage.getItem('theme') === 'light') {
       document.body.classList.add('light-mode');
     }
+    
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
