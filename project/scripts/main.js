@@ -211,29 +211,39 @@ document.addEventListener("DOMContentLoaded", () => {
 function formatPrice(amount) {
   return `$${parseFloat(amount).toFixed(2)}`;
 }
-// Hero Carousel Functionality
-document.addEventListener('DOMContentLoaded', function() {
+// ======================
+  // HERO CAROUSEL (Optimized)
+  // ======================
+  function initCarousel() {
     const carousel = document.getElementById('heroCarousel');
+    if (!carousel) return;
+    
     const slides = document.querySelectorAll('.hero-slide');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
     const indicatorsContainer = document.getElementById('carouselIndicators');
     let currentIndex = 0;
+    let slideInterval;
     
     // Create indicators
-    slides.forEach((_, index) => {
-      const indicator = document.createElement('div');
-      indicator.classList.add('indicator');
-      if (index === 0) indicator.classList.add('active');
-      indicator.addEventListener('click', () => goToSlide(index));
-      indicatorsContainer.appendChild(indicator);
-    });
+    function createIndicators() {
+      indicatorsContainer.innerHTML = '';
+      slides.forEach((_, index) => {
+        const indicator = document.createElement('button');
+        indicator.classList.add('indicator');
+        indicator.setAttribute('aria-label', `Go to slide ${index + 1}`);
+        if (index === 0) indicator.classList.add('active');
+        indicator.addEventListener('click', () => goToSlide(index));
+        indicatorsContainer.appendChild(indicator);
+      });
+    }
     
     // Update carousel position
     function updateCarousel() {
       carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
       document.querySelectorAll('.indicator').forEach((indicator, index) => {
         indicator.classList.toggle('active', index === currentIndex);
+        indicator.setAttribute('aria-current', index === currentIndex);
       });
     }
     
@@ -241,30 +251,51 @@ document.addEventListener('DOMContentLoaded', function() {
     function goToSlide(index) {
       currentIndex = index;
       updateCarousel();
+      resetAutoAdvance();
     }
     
     // Next slide
     function nextSlide() {
       currentIndex = (currentIndex + 1) % slides.length;
       updateCarousel();
+      resetAutoAdvance();
     }
     
     // Previous slide
     function prevSlide() {
       currentIndex = (currentIndex - 1 + slides.length) % slides.length;
       updateCarousel();
+      resetAutoAdvance();
     }
     
-    // Event listeners
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
+    // Auto-advance
+    function startAutoAdvance() {
+      slideInterval = setInterval(nextSlide, 5000);
+    }
     
-    // Auto-advance (optional)
-    let slideInterval = setInterval(nextSlide, 5000);
+    function resetAutoAdvance() {
+      clearInterval(slideInterval);
+      startAutoAdvance();
+    }
+    
+    // Initialize
+    createIndicators();
+    startAutoAdvance();
+    
+    // Event listeners
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
     
     // Pause on hover
     carousel.addEventListener('mouseenter', () => clearInterval(slideInterval));
-    carousel.addEventListener('mouseleave', () => {
-      slideInterval = setInterval(nextSlide, 5000);
+    carousel.addEventListener('mouseleave', startAutoAdvance);
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
     });
-  });
+  }
+
+  // Initialize carousel
+  initCarousel();
